@@ -1,0 +1,201 @@
+# ICAR Website Development Rules
+
+## Project Overview
+- **Framework**: Next.js 15+ with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS (primary), minimal custom CSS
+- **Architecture**: Atomic Design Components
+- **Default**: Server Components, Client Components only when needed
+
+## Core Development Principles
+
+### 1. Next.js App Router Best Practices
+- Use App Router (`src/app/`) structure
+- Implement proper route groups and layouts
+- Use loading.tsx, error.tsx, and not-found.tsx for better UX
+- Leverage Next.js built-in optimizations (Image, Link, etc.)
+
+### 2. TypeScript Standards
+- Strict TypeScript configuration enabled
+- Define proper interfaces and types for all components
+- Use type-safe props and avoid `any` type
+- Implement proper error handling with typed errors
+
+### 3. Component Architecture (Atomic Design)
+```
+src/
+├── components/
+│   ├── atoms/          # Basic building blocks (Button, Input, Text)
+│   ├── molecules/      # Simple combinations (SearchBar, Card)
+│   ├── organisms/      # Complex UI sections (Header, Footer, Sidebar)
+│   ├── templates/      # Page layouts and structures
+│   └── pages/          # Full page components
+```
+
+### 4. Server vs Client Components
+- **Default**: Server Components (no "use client" directive)
+- **Client Components**: Only when needed for:
+  - Interactivity (onClick, onChange, etc.)
+  - Browser APIs (localStorage, window, etc.)
+  - React hooks (useState, useEffect, etc.)
+  - Event listeners
+
+### 5. Styling Guidelines
+- **Primary**: Tailwind CSS classes
+- **Custom CSS**: Only when Tailwind cannot achieve the design
+- **CSS Modules**: For complex component-specific styles
+- **Global Styles**: Minimal, only for base styles and CSS variables
+
+### 6. File Naming Conventions
+- Components: PascalCase (e.g., `UserProfile.tsx`)
+- Pages: kebab-case (e.g., `user-profile/page.tsx`)
+- Utilities: camelCase (e.g., `formatDate.ts`)
+- Constants: UPPER_SNAKE_CASE (e.g., `API_ENDPOINTS.ts`)
+
+### 7. Component Structure
+```typescript
+// atoms/Button.tsx
+interface ButtonProps {
+  children: React.ReactNode;
+  variant?: 'primary' | 'secondary' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+  onClick?: () => void;
+  disabled?: boolean;
+  className?: string;
+}
+
+export default function Button({
+  children,
+  variant = 'primary',
+  size = 'md',
+  onClick,
+  disabled = false,
+  className = '',
+}: ButtonProps) {
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className={`btn btn-${variant} btn-${size} ${className}`}
+    >
+      {children}
+    </button>
+  );
+}
+```
+
+### 8. Performance Guidelines
+- Use Next.js Image component for optimized images
+- Implement proper loading states
+- Use React.memo() for expensive components
+- Implement proper error boundaries
+- Use dynamic imports for code splitting
+
+### 9. Code Quality
+- No code duplication - create reusable components
+- Follow DRY (Don't Repeat Yourself) principle
+- Use proper TypeScript types and interfaces
+- Implement proper error handling
+- Write clean, readable, and maintainable code
+
+### 10. Folder Structure
+```
+src/
+├── app/                 # Next.js App Router pages
+├── components/          # Atomic design components
+├── lib/                 # Utility functions and configurations
+├── types/               # TypeScript type definitions
+├── hooks/               # Custom React hooks (client only)
+├── constants/           # Application constants
+└── styles/              # Global styles and CSS variables
+```
+
+### 11. Import/Export Guidelines
+- Use named exports for components
+- Use default exports for pages
+- Group imports: React, Next.js, third-party, local
+- Use absolute imports with `@/` alias
+
+### 12. State Management
+- Use React Context for global state when needed
+- Prefer local state with useState for component-specific state
+- Use server state management (SWR/React Query) for API data
+- Avoid prop drilling - use composition or context
+
+### 13. API Integration
+- Use Next.js API routes for backend functionality
+- Implement proper error handling and loading states
+- Use TypeScript for API response types
+- Implement proper data validation
+
+### 14. Accessibility
+- Use semantic HTML elements
+- Implement proper ARIA labels and roles
+- Ensure keyboard navigation works
+- Maintain proper color contrast ratios
+- Test with screen readers
+
+### 15. Testing Guidelines
+- Write unit tests for utility functions
+- Test component rendering and interactions
+- Use proper testing libraries (Jest, React Testing Library)
+- Implement integration tests for critical user flows
+
+## Code Examples
+
+### Server Component Example
+```typescript
+// components/organisms/ProductList.tsx
+import { getProducts } from '@/lib/api';
+import ProductCard from '@/components/molecules/ProductCard';
+
+export default async function ProductList() {
+  const products = await getProducts();
+  
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </div>
+  );
+}
+```
+
+### Client Component Example
+```typescript
+// components/molecules/SearchBar.tsx
+'use client';
+
+import { useState } from 'react';
+import { Search } from 'lucide-react';
+
+interface SearchBarProps {
+  onSearch: (query: string) => void;
+  placeholder?: string;
+}
+
+export default function SearchBar({ onSearch, placeholder = 'Search...' }: SearchBarProps) {
+  const [query, setQuery] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSearch(query);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="relative">
+      <input
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder={placeholder}
+        className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      />
+      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+    </form>
+  );
+}
+```
+
+Remember: Always prioritize server components, use Tailwind CSS, follow atomic design principles, and maintain clean, type-safe code!
