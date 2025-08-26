@@ -6,6 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import ComponentShowcase from "@/components/demo/ComponentShowcase";
 import Header from "@/components/organisms/Header";
 import HeroSection from "@/components/organisms/HeroSection";
+import HeroSection1 from "@/components/organisms/HeroSection1";
 
 export default function Home() {
   return (
@@ -15,9 +16,10 @@ export default function Home() {
       
       {/* Hero Section */}
       <HeroSection />
+      <HeroSection1/>
 
       {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-20">
         {/* Components Demo Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Button Demo */}

@@ -56,28 +56,41 @@ export default function HeroSection({ className = '' }: HeroSectionProps) {
       </div>
 
       <div className="mx-auto max-w-screen-xl px-5 md:px-16 xl:px-20">
-        <div className="grid gap-6 lg:grid-cols-[631px_1fr] xl:gap-[74px]">
+        <div className="grid gap-6 lg:grid-cols-[550px_1fr] xl:gap-[74px]">
           {/* Content */}
           <div className="flex flex-1 flex-col gap-6">
             {/* Badge */}
             <div className="flex h-[22px] w-fit items-center gap-1 rounded-full bg-black/20 px-2 text-xs backdrop-blur-sm">
-              <span className="text-white/60">Introducing</span>
-              <span className="text-white">ICAR Premium</span>
+              <span className="text-white">Giải pháp xe hơi hàng đầu Việt Nam</span>
             </div>
 
             {/* Main Heading */}
             <h1 className="font-headline text-balance !block mx-0 text-left text-5xl font-bold xl:text-6xl text-white">
-              Our expertise. Your automotive excellence.
+              KHÁM PHÁ THẾ GIỚI XE HƠI CÙNG ICAR
             </h1>
 
             {/* Description */}
             <p className="text-white/80 text-lg leading-relaxed">
-              Elevate above the competition with ICAR&apos;s premium automotive services. Unlock luxury car expertise, cutting-edge technology, a vast network of automotive professionals and an unrivaled customer experience — all while maintaining your vehicle&apos;s peak performance.
+              Trải nghiệm dịch vụ xe hơi chất lượng cao với đội ngũ chuyên nghiệp. Từ mua bán, bảo dưỡng đến tư vấn - chúng tôi đồng hành cùng bạn.
             </p>
-
+            {/* Stats */}
+            {/* <div className="grid grid-cols-3 gap-8 py-6">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary">10K+</div>
+                <div className="text-sm text-muted-foreground">Khách hàng hài lòng</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary">500+</div>
+                <div className="text-sm text-muted-foreground">Xe đã bán</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary">5★</div>
+                <div className="text-sm text-muted-foreground">Đánh giá trung bình</div>
+              </div>
+            </div> */}
             {/* CTA Button */}
             <Button className="w-fit px-6 h-12 text-base font-semibold group">
-              Learn more about ICAR Premium
+              Khám phá ngay
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
 
@@ -102,31 +115,34 @@ export default function HeroSection({ className = '' }: HeroSectionProps) {
                 </Avatar>
               </div>
               <p className="text-sm text-white/40">
-                10,000+ ICAR Customers
-                <span className="text-white/20"> and counting</span>
+                Được tin tưởng bởi
+                <span className="text-white/90"> 1000+ khách hàng</span>
+
               </p>
             </div>
           </div>
 
           {/* Video Button */}
-          <div className="flex h-full">
-            <Button
-              variant="outline"
-              className="relative isolate h-fit my-auto mx-auto lg:mt-auto rounded-full bg-black/30 p-3 backdrop-blur-sm hover:bg-black/40 hover:border-white/40 border-white/20 text-white"
-              type="button"
-            >
-              <div className="flex items-center gap-3">
-                <div className="flex h-[49px] w-[49px] items-center justify-center rounded-full bg-white/10">
-                  <Play className="h-[22px] w-[22px] text-white" />
+
+          <div className="relative">
+            <div className="relative z-10">
+              {/* Main Car Image */}
+              <div className="aspect-[1/1] bg-gradient-to-br from-background/20 to-background/10 rounded-xl flex items-center justify-center overflow-hidden">
+              
+              <img src="https://www.garagebox.io/_next/image?url=https%3A%2F%2Fgaragebox.s3.ap-south-1.amazonaws.com%2Fweb-assets%2Ffeatures%2Findia_best_garage_management_software.webp%3Fv%3D3&w=3840&q=75" alt="Xe hơi" className="w-full h-full object-cover" />
+            </div>
+
+          
+
+              {/* <div className="absolute -bottom-4 -left-4 bg-background rounded-xl p-4 shadow-lg border border-border">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary">4.9</div>
+                  <div className="text-xs text-muted-foreground">Đánh giá</div>
                 </div>
-                <div className="mr-1 text-start">
-                  <div className="text-sm font-semibold">Introducing ICAR Premium</div>
-                  <div className="text-xs font-normal text-white/60">
-                    A guided overview from our CEO
-                  </div>
-                </div>
-              </div>
-            </Button>
+              </div> */}
+            </div>
+
+        
           </div>
         </div>
 

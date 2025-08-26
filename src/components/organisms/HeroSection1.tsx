@@ -5,7 +5,7 @@ interface HeroSectionProps {
   className?: string;
 }
 
-export default function HeroSection({ className = '' }: HeroSectionProps) {
+export default function HeroSection1({ className = '' }: HeroSectionProps) {
     return (
     <section className={`relative overflow-hidden bg-gradient-to-br from-background via-background to-muted/20 ${className}`}>
       {/* Background Pattern */}
