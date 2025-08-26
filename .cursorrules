@@ -21,7 +21,7 @@
 - Use type-safe props and avoid `any` type
 - Implement proper error handling with typed errors
 
-### 3. Component Architecture (Atomic Design)
+<!-- ### 3. Component Architecture (Atomic Design)
 ```
 src/
 ├── components/
@@ -30,7 +30,7 @@ src/
 │   ├── organisms/      # Complex UI sections (Header, Footer, Sidebar)
 │   ├── templates/      # Page layouts and structures
 │   └── pages/          # Full page components
-```
+``` -->
 
 ### 4. Server vs Client Components
 - **Default**: Server Components (no "use client" directive)
