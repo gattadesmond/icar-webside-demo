@@ -1,146 +1,167 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Play, Star } from 'lucide-react';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { ArrowRight, Play } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 interface HeroSectionProps {
   className?: string;
 }
 
 export default function HeroSection({ className = '' }: HeroSectionProps) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const images = [
+    'https://madebydesignesia.com/themes/autodetail/images/slider/1.webp',
+    'https://madebydesignesia.com/themes/autodetail/images/slider/2.webp',
+    'https://madebydesignesia.com/themes/autodetail/images/slider/3.webp'
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
-    <section className={`relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50 ${className}`}>
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-      
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section className={`relative isolate mx-auto min-h-fit w-full py-12 pt-20 md:pt-40 ${className}`}>
+      {/* Background Image Slider */}
+      <div className="absolute inset-0 isolate -z-10 lg:h-full overlay bg-cover bg-center overflow-hidden">
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{
+              backgroundImage: `url(${image})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
+          />
+        ))}
+        {/* Overlay for better text readability */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            content: "",
+            position: "absolute",
+            inset: 0,
+            backgroundImage: "linear-gradient(0deg, rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), linear-gradient(180deg, rgba(0, 0, 0, .4) 50%, #000)"
+          }}
+        ></div>
+      </div>
+
+      <div className="mx-auto max-w-screen-xl px-5 md:px-16 xl:px-20">
+        <div className="grid gap-6 lg:grid-cols-[631px_1fr] xl:gap-[74px]">
           {/* Content */}
-          <div className="space-y-8">
+          <div className="flex flex-1 flex-col gap-6">
             {/* Badge */}
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-medium">
-              <Star className="w-4 h-4 mr-2 fill-current" />
-              <span>Giải pháp xe hơi hàng đầu Việt Nam</span>
+            <div className="flex h-[22px] w-fit items-center gap-1 rounded-full bg-black/20 px-2 text-xs backdrop-blur-sm">
+              <span className="text-white/60">Introducing</span>
+              <span className="text-white">ICAR Premium</span>
             </div>
 
             {/* Main Heading */}
-            <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-tight">
-                Khám phá thế giới{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-                  xe hơi
-                </span>{' '}
-                cùng ICAR
-              </h1>
-              <p className="text-xl text-gray-600 leading-relaxed max-w-2xl">
-                Trải nghiệm dịch vụ xe hơi chất lượng cao với đội ngũ chuyên nghiệp. 
-                Từ mua bán, bảo dưỡng đến tư vấn - chúng tôi đồng hành cùng bạn.
+            <h1 className="font-headline text-balance !block mx-0 text-left text-5xl font-bold xl:text-6xl text-white">
+              Our expertise. Your automotive excellence.
+            </h1>
+
+            {/* Description */}
+            <p className="text-white/80 text-lg leading-relaxed">
+              Elevate above the competition with ICAR&apos;s premium automotive services. Unlock luxury car expertise, cutting-edge technology, a vast network of automotive professionals and an unrivaled customer experience — all while maintaining your vehicle&apos;s peak performance.
+            </p>
+
+            {/* CTA Button */}
+            <Button className="w-fit px-6 h-12 text-base font-semibold group">
+              Learn more about ICAR Premium
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+
+            {/* Trust Indicator */}
+            <div className="flex items-center gap-2">
+              <div className="flex -space-x-2">
+                <Avatar className="h-8 w-8 border-2 border-white">
+                  <AvatarImage src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face" alt="Customer 1" />
+                  <AvatarFallback className="bg-gradient-to-r from-primary to-primary/70 text-white text-xs">JD</AvatarFallback>
+                </Avatar>
+                <Avatar className="h-8 w-8 border-2 border-white">
+                  <AvatarImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32&h=32&fit=crop&crop=face" alt="Customer 2" />
+                  <AvatarFallback className="bg-gradient-to-r from-primary to-primary/70 text-white text-xs">MS</AvatarFallback>
+                </Avatar>
+                <Avatar className="h-8 w-8 border-2 border-white">
+                  <AvatarImage src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=32&h=32&fit=crop&crop=face" alt="Customer 3" />
+                  <AvatarFallback className="bg-gradient-to-r from-primary to-primary/70 text-white text-xs">AL</AvatarFallback>
+                </Avatar>
+                <Avatar className="h-8 w-8 border-2 border-white">
+                  <AvatarImage src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=32&h=32&fit=crop&crop=face" alt="Customer 4" />
+                  <AvatarFallback className="bg-gradient-to-r from-primary to-primary/70 text-white text-xs">RK</AvatarFallback>
+                </Avatar>
+              </div>
+              <p className="text-sm text-white/40">
+                10,000+ ICAR Customers
+                <span className="text-white/20"> and counting</span>
               </p>
             </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 py-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600">10K+</div>
-                <div className="text-sm text-gray-600">Khách hàng hài lòng</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600">500+</div>
-                <div className="text-sm text-gray-600">Xe đã bán</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600">5★</div>
-                <div className="text-sm text-gray-600">Đánh giá trung bình</div>
-              </div>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="group">
-                Khám phá ngay
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button variant="outline" size="lg" className="group">
-                <Play className="h-4 w-4" />
-                Xem video giới thiệu
-              </Button>
-            </div>
-
-            {/* Trust Indicators */}
-            <div className="flex items-center space-x-6 pt-4">
-              <div className="flex items-center space-x-2">
-                <div className="flex -space-x-1">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500 border-2 border-white"
-                      aria-hidden="true"
-                    />
-                  ))}
-                </div>
-                <span className="text-sm text-gray-600">Được tin tưởng bởi 1000+ khách hàng</span>
-              </div>
-            </div>
           </div>
 
-          {/* Hero Image */}
-          <div className="relative">
-            <div className="relative z-10">
-              {/* Main Car Image */}
-              <div className="relative bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl p-8 shadow-2xl">
-                <div className="aspect-[4/3] bg-gradient-to-br from-white/20 to-white/10 rounded-xl flex items-center justify-center">
-                                  <div className="text-center text-white">
-                  <div className="text-6xl mb-4" role="img" aria-label="Xe hơi">🚗</div>
-                  <div className="text-xl font-semibold">Xe hơi chất lượng</div>
-                  <div className="text-sm opacity-80">Hình ảnh minh họa</div>
+          {/* Video Button */}
+          <div className="flex h-full">
+            <Button 
+              variant="outline"
+              className="relative isolate h-fit my-auto mx-auto lg:mt-auto rounded-full bg-black/30 p-3 backdrop-blur-sm hover:bg-black/40 hover:border-white/40 border-white/20 text-white"
+              type="button"
+            >
+              <div className="flex items-center gap-3">
+                <div className="flex h-[49px] w-[49px] items-center justify-center rounded-full bg-white/10">
+                  <Play className="h-[22px] w-[22px] text-white" />
                 </div>
-                </div>
-              </div>
-
-              {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 bg-white rounded-xl p-4 shadow-lg">
-                <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-sm font-medium text-gray-700">Có sẵn</span>
+                <div className="mr-1 text-start">
+                  <div className="text-sm font-semibold">Introducing ICAR Premium</div>
+                  <div className="text-xs font-normal text-white/60">
+                    A guided overview from our CEO
+                  </div>
                 </div>
               </div>
-
-              <div className="absolute -bottom-4 -left-4 bg-white rounded-xl p-4 shadow-lg">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600">4.9</div>
-                  <div className="text-xs text-gray-600">Đánh giá</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Background Decoration */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-200/30 to-indigo-200/30 rounded-2xl -z-10 transform rotate-3 scale-105" aria-hidden="true"></div>
+            </Button>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg
-          className="w-full h-16 text-white"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-          role="img"
-        >
-          <path
-            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-            opacity=".25"
-            fill="currentColor"
-          />
-          <path
-            d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-            opacity=".5"
-            fill="currentColor"
-          />
-          <path
-            d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
-            fill="currentColor"
-          />
-        </svg>
+    
+
+        {/* Brands Section */}
+        <div className="mt-20 flex w-full flex-wrap lg:mt-32">
+          <h6 className="w-full whitespace-nowrap text-center text-[10px] font-medium uppercase tracking-[2px] text-white/50">
+            AS SEEN IN
+          </h6>
+          <div className="mr-auto flex h-fit w-full flex-wrap justify-evenly gap-x-10 gap-y-6 py-10 md:mx-auto">
+            {/* Placeholder brand logos - you can replace with actual brand images */}
+            {[
+              { name: "AutoWeek", width: 122, height: 14 },
+              { name: "Car & Driver", width: 76, height: 20 },
+              { name: "Motor Trend", width: 136, height: 30 },
+              { name: "Automotive News", width: 178, height: 26 },
+              { name: "Top Gear", width: 141, height: 20 },
+              { name: "Road & Track", width: 135, height: 18 },
+              { name: "Jalopnik", width: 136, height: 22 },
+              { name: "Autoblog", width: 59, height: 22 }
+            ].map((brand) => (
+              <div
+                key={brand.name}
+                className="flex items-center justify-center"
+                style={{ width: brand.width, height: brand.height }}
+              >
+                <div className="w-full h-full bg-white/10 rounded flex items-center justify-center">
+                  <span className="text-white/60 text-xs font-medium">{brand.name}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
