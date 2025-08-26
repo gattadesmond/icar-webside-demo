@@ -11,7 +11,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ className = '' }: HeroSectionProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
+
   const images = [
     'https://madebydesignesia.com/themes/autodetail/images/slider/1.webp',
     'https://madebydesignesia.com/themes/autodetail/images/slider/2.webp',
@@ -33,9 +33,8 @@ export default function HeroSection({ className = '' }: HeroSectionProps) {
         {images.map((image, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+              }`}
             style={{
               backgroundImage: `url(${image})`,
               backgroundSize: 'cover',
@@ -45,7 +44,7 @@ export default function HeroSection({ className = '' }: HeroSectionProps) {
           />
         ))}
         {/* Overlay for better text readability */}
-        <div 
+        <div
           className="absolute inset-0"
           style={{
             content: "",
@@ -111,7 +110,7 @@ export default function HeroSection({ className = '' }: HeroSectionProps) {
 
           {/* Video Button */}
           <div className="flex h-full">
-            <Button 
+            <Button
               variant="outline"
               className="relative isolate h-fit my-auto mx-auto lg:mt-auto rounded-full bg-black/30 p-3 backdrop-blur-sm hover:bg-black/40 hover:border-white/40 border-white/20 text-white"
               type="button"
@@ -131,37 +130,104 @@ export default function HeroSection({ className = '' }: HeroSectionProps) {
           </div>
         </div>
 
-    
 
-        {/* Brands Section */}
+
         <div className="mt-20 flex w-full flex-wrap lg:mt-32">
-          <h6 className="w-full whitespace-nowrap text-center text-[10px] font-medium uppercase tracking-[2px] text-white/50">
+          <h6 className="text-w-50035 w-full text-center text-[10px] font-medium tracking-[2px] whitespace-nowrap uppercase">
             AS SEEN IN
           </h6>
           <div className="mr-auto flex h-fit w-full flex-wrap justify-evenly gap-x-10 gap-y-6 py-10 md:mx-auto">
-            {/* Placeholder brand logos - you can replace with actual brand images */}
-            {[
-              { name: "AutoWeek", width: 122, height: 14 },
-              { name: "Car & Driver", width: 76, height: 20 },
-              { name: "Motor Trend", width: 136, height: 30 },
-              { name: "Automotive News", width: 178, height: 26 },
-              { name: "Top Gear", width: 141, height: 20 },
-              { name: "Road & Track", width: 135, height: 18 },
-              { name: "Jalopnik", width: 136, height: 22 },
-              { name: "Autoblog", width: 59, height: 22 }
-            ].map((brand) => (
-              <div
-                key={brand.name}
-                className="flex items-center justify-center"
-                style={{ width: brand.width, height: brand.height }}
-              >
-                <div className="w-full h-full bg-white/10 rounded flex items-center justify-center">
-                  <span className="text-white/60 text-xs font-medium">{brand.name}</span>
-                </div>
-              </div>
-            ))}
+            <img
+              alt="Brand"
+              loading="lazy"
+              width={122}
+              height={14}
+              decoding="async"
+              data-nimg={1}
+              className="animate-fade-in duration-300"
+              style={{ color: "transparent" }}
+              src="https://www.datocms-assets.com/53643/1713218921-wsj.svg"
+            />
+            <img
+              alt="Brand"
+              loading="lazy"
+              width={76}
+              height={20}
+              decoding="async"
+              data-nimg={1}
+              className="animate-fade-in duration-300"
+              style={{ color: "transparent" }}
+              src="https://www.datocms-assets.com/53643/1713218918-forbes.svg"
+            />
+            <img
+              alt="Brand"
+              loading="lazy"
+              width={136}
+              height={22}
+              decoding="async"
+              data-nimg={1}
+              className="animate-fade-in duration-300"
+              style={{ color: "transparent" }}
+              src="https://www.datocms-assets.com/53643/1713218915-insider.svg"
+            />
+            <img
+              alt="Brand"
+              loading="lazy"
+              width={59}
+              height={22}
+              decoding="async"
+              data-nimg={1}
+              className="animate-fade-in duration-300"
+              style={{ color: "transparent" }}
+              src="https://www.datocms-assets.com/53643/1713218913-skift.svg"
+            />
+            <img
+              alt="Brand"
+              loading="lazy"
+              width={136}
+              height={30}
+              decoding="async"
+              data-nimg={1}
+              className="animate-fade-in duration-300"
+              style={{ color: "transparent" }}
+              src="https://www.datocms-assets.com/53643/1713218909-rolling_stone.svg"
+            />
+            <img
+              alt="Brand"
+              loading="lazy"
+              width={141}
+              height={20}
+              decoding="async"
+              data-nimg={1}
+              className="animate-fade-in duration-300"
+              style={{ color: "transparent" }}
+              src="https://www.datocms-assets.com/53643/1719324450-fast_company_logo-1.svg"
+            />
+            <img
+              alt="Brand"
+              loading="lazy"
+              width={178}
+              height={26}
+              decoding="async"
+              data-nimg={1}
+              className="animate-fade-in duration-300"
+              style={{ color: "transparent" }}
+              src="https://www.datocms-assets.com/53643/1719324454-usa_today-2020-01-29-1.svg"
+            />
+            <img
+              alt="Brand"
+              loading="lazy"
+              width={135}
+              height={18}
+              decoding="async"
+              data-nimg={1}
+              className="animate-fade-in duration-300"
+              style={{ color: "transparent" }}
+              src="https://www.datocms-assets.com/53643/1720189467-vb.svg"
+            />
           </div>
         </div>
+
       </div>
     </section>
   );
