@@ -8,6 +8,7 @@ import ComponentShowcase from "@/components/demo/ComponentShowcase";
 import Header from "@/components/organisms/Header";
 import HeroSection from "@/components/organisms/HeroSection";
 import HeroSection1 from "@/components/organisms/HeroSection1";
+import Footer from "@/components/organisms/Footer";
 import { Users, Car, Wrench, Star } from 'lucide-react';
 
 export default function Home() {
@@ -119,14 +120,14 @@ export default function Home() {
       <div className="mx-auto max-w-screen-xl px-5 py-10 md:px-16 md:py-20 xl:px-20">
         <div className="mb-12 space-y-4">
           <h6 className="text-reit-gray text-[10px] font-medium tracking-[2px] uppercase">
-            THE THESIS
+            QUY TRÌNH LÀM VIỆC
           </h6>
           <p className="font-headline text-4.5xl mx-auto mt-0 !block text-start font-bold text-balance xl:text-5xl">
-            Why Wander works
+            Tại sao chọn iGara
           </p>
           <p className="text-w-3005">
-            Wander has verticalized the traditionally fragmented components of the
-            travel ecosystem into one unified experience.
+            iGara đã tối ưu hóa quy trình sửa chữa xe hơi thành một trải nghiệm thống nhất, 
+            đảm bảo chất lượng và hiệu quả cao nhất cho khách hàng.
           </p>
         </div>
         <div className="mx-auto my-0 hidden max-w-[calc(410px*3+24px*2)] items-center justify-center gap-x-4 lg:flex">
@@ -145,112 +146,78 @@ export default function Home() {
         <div className="mt-6 flex max-w-[calc(410px*3+24px*2)] flex-col items-center justify-center gap-6 md:gap-y-10 lg:mx-auto lg:flex-row lg:justify-start">
           <div className="bg-w-90015 h-fit w-full max-w-[410px] grow overflow-hidden rounded-2xl">
             <figure className="relative h-[220px] w-full">
-              <img
-                alt="We consolidate the top 1% of properties on one platform"
-                loading="lazy"
-                decoding="async"
-                data-nimg="fill"
-                className="animate-fade-in duration-300"
-                style={{
-                  position: "absolute",
-                  height: "100%",
-                  width: "100%",
-                  left: 0,
-                  top: 0,
-                  right: 0,
-                  bottom: 0,
-                  objectFit: "cover",
-                  color: "transparent"
-                }}
-                src="https://www.datocms-assets.com/53643/1713379108-rectangle-26299.jpg"
+              <Image
+                src="/images/step-1.jpg"
+                alt="Tiếp nhận xe và ghi nhận dấu hiệu ban đầu"
+                fill
+                className="object-cover animate-fade-in duration-300"
+                priority
               />
             </figure>
             <div className="min-h-[calc(100%-220px)] space-y-2 p-6">
               <h6 className="text-reit-gray text-[10px] font-medium tracking-[2px] whitespace-nowrap uppercase">
-                CONSOLIDATION
+                BƯỚC 1
               </h6>
               <h3 className="mt-0 text-start text-xl font-medium">
-                We consolidate the top 1% of properties on one platform
+                Tiếp nhận xe và ghi nhận dấu hiệu ban đầu
               </h3>
               <p className="text-w-3005">
-                The top 1% of vacation rentals generate 35% of revenue. With the best
-                vacation rentals in one place, consumers only have one place to look.
+                Kiểm tra tổng quan xe, ghi nhận tình trạng hiện tại và các dấu hiệu bất thường. 
+                Đảm bảo minh bạch và chính xác trong việc đánh giá ban đầu.
               </p>
             </div>
           </div>
           <div className="bg-w-90015 h-fit w-full max-w-[410px] grow overflow-hidden rounded-2xl">
             <figure className="relative h-[220px] w-full">
-              <img
-                alt="We standardize operations and distribute to our audience"
-                loading="lazy"
-                decoding="async"
-                data-nimg="fill"
-                className="animate-fade-in duration-300"
-                style={{
-                  position: "absolute",
-                  height: "100%",
-                  width: "100%",
-                  left: 0,
-                  top: 0,
-                  right: 0,
-                  bottom: 0,
-                  objectFit: "cover",
-                  color: "transparent"
-                }}
-                src="https://www.datocms-assets.com/53643/1713390317-work_from_wander_11zon-1-1.jpg"
+              <Image
+                src="/images/step-2.jpg"
+                alt="Tiếp nhận yêu cầu và tư vấn kỹ thuật"
+                fill
+                className="object-cover animate-fade-in duration-300"
+                priority
               />
             </figure>
             <div className="min-h-[calc(100%-220px)] space-y-2 p-6">
               <h6 className="text-reit-gray text-[10px] font-medium tracking-[2px] whitespace-nowrap uppercase">
-                STANDARDIZATION
+                BƯỚC 2
               </h6>
               <h3 className="mt-0 text-start text-xl font-medium">
-                We standardize operations and distribute to our audience
+                Tiếp nhận yêu cầu và tư vấn kỹ thuật
               </h3>
               <p className="text-w-3005">
-                Our standardized hospitality experience across our portfolio delivers
-                a consistent guest experience and compounds a distribution moat.
+                Lắng nghe yêu cầu của khách hàng và tư vấn chuyên môn từ đội ngũ kỹ thuật viên. 
+                Đề xuất giải pháp tối ưu với chi phí hợp lý và thời gian phù hợp.
               </p>
             </div>
           </div>
           <div className="bg-w-90015 h-fit w-full max-w-[410px] grow overflow-hidden rounded-2xl">
             <figure className="relative h-[220px] w-full">
-              <img
-                alt="We run operations on WanderOS with deep automation and AI"
-                loading="lazy"
-                decoding="async"
-                data-nimg="fill"
-                className="animate-fade-in duration-300"
-                style={{
-                  position: "absolute",
-                  height: "100%",
-                  width: "100%",
-                  left: 0,
-                  top: 0,
-                  right: 0,
-                  bottom: 0,
-                  objectFit: "cover",
-                  color: "transparent"
-                }}
-                src="https://www.datocms-assets.com/53643/1713379190-rectangle-26299-1.jpg"
+              <Image
+                src="/images/step-3.jpg"
+                alt="Sửa chữa và bảo dưỡng chuyên nghiệp"
+                fill
+                className="object-cover animate-fade-in duration-300"
+                priority
               />
             </figure>
             <div className="min-h-[calc(100%-220px)] space-y-2 p-6">
               <h6 className="text-reit-gray text-[10px] font-medium tracking-[2px] whitespace-nowrap uppercase">
-                AUTOMATION
+                BƯỚC 3
               </h6>
               <h3 className="mt-0 text-start text-xl font-medium">
-                We run operations on WanderOS with deep automation and AI
+                Sửa chữa và bảo dưỡng chuyên nghiệp
               </h3>
               <p className="text-w-3005">
-                By moving more and more of our operations into WanderOS and operating
-                like a software business, we achieve software-level margins.
+                Thực hiện sửa chữa theo đúng quy trình kỹ thuật với thiết bị hiện đại. 
+                Đảm bảo chất lượng hoàn thiện và kiểm tra kỹ lưỡng trước khi bàn giao xe.
               </p>
             </div>
           </div>
         </div>
       </div>
 
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
