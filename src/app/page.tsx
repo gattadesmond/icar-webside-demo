@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -57,6 +58,64 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <div className="mx-auto flex max-w-screen-xl flex-col gap-10 px-5 py-10 md:flex-row md:justify-between md:px-16  lg:py-20 xl:px-20">
+        <div className="flex flex-col gap-y-5 lg:flex-row lg:gap-x-5">
+          <div className="relative h-24 w-24 lg:h-28 lg:w-28">
+            <Image
+              src="/images/feature-1.png"
+              alt="Chẩn đoán chính xác"
+              fill
+              className="object-cover rounded-lg animate-fade-in duration-300"
+              priority
+            />
+          </div>
+          <div className="space-y-2 md:max-w-[266px]">
+            <p className="text-xl font-medium">Chẩn đoán chính xác</p>
+            <p className="text-white/40">
+              Sử dụng thiết bị chẩn đoán hiện đại để xác định chính xác vấn đề của xe. 
+              Tiết kiệm thời gian và chi phí với chẩn đoán nhanh chóng.
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-y-5 lg:flex-row lg:gap-x-5">
+          <div className="relative h-24 w-24 lg:h-28 lg:w-28">
+            <Image
+              src="/images/feature-2.png"
+              alt="Sửa chữa chuyên nghiệp"
+              fill
+              className="object-cover rounded-lg animate-fade-in duration-300"
+              priority
+            />
+          </div>
+          <div className="space-y-2 md:max-w-[266px]">
+            <p className="text-xl font-medium">Sửa chữa chuyên nghiệp</p>
+            <p className="text-white/40">
+              Đội ngũ kỹ thuật viên giàu kinh nghiệm với chứng chỉ chuyên môn. 
+              Sửa chữa đúng chuẩn nhà sản xuất với bảo hành chính hãng.
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-y-5 lg:flex-row lg:gap-x-5">
+          <div className="relative h-24 w-24 lg:h-28 lg:w-28">
+            <Image
+              src="/images/feature-3.png"
+              alt="Dịch vụ tận tâm"
+              fill
+              className="object-cover rounded-lg animate-fade-in duration-300"
+              priority
+            />
+          </div>
+          <div className="space-y-2 md:max-w-[266px]">
+            <p className="text-xl font-medium">Dịch vụ tận tâm</p>
+            <p className="text-white/40">
+              Cam kết hoàn thành đúng hẹn với chất lượng cao nhất. 
+              Tư vấn miễn phí và hỗ trợ 24/7 cho mọi vấn đề về xe.
+            </p>
+          </div>
+        </div>
+      </div>
+
 
 
       {/* Main Content */}

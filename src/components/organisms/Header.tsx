@@ -173,7 +173,7 @@ export default function Header({ className = '' }: HeaderProps) {
           <div className="flex items-center gap-6">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
-              <div className="relative h-8 w-24">
+              <div className="relative h-9 w-9">
                 <Image
                   src="/images/igara-logo.png"
                   alt="IGARA Logo"
