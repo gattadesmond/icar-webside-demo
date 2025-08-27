@@ -7,6 +7,7 @@ import ComponentShowcase from "@/components/demo/ComponentShowcase";
 import Header from "@/components/organisms/Header";
 import HeroSection from "@/components/organisms/HeroSection";
 import HeroSection1 from "@/components/organisms/HeroSection1";
+import { Users, Car, Wrench, Star } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -19,71 +20,39 @@ export default function Home() {
       <section className="relative isolate mx-auto min-h-fit w-full max-w-screen-xl px-5 py-10 md:px-20 md:py-0">
         <div className="grid grid-cols-2 gap-x-12 gap-y-16 md:grid-cols-4">
           <div className="flex flex-col gap-4">
-            <img
-              alt=""
-              loading="lazy"
-              width={24}
-              height={24}
-              decoding="async"
-              data-nimg={1}
-              className="animate-fade-in h-6 w-6 duration-300"
-              style={{ color: "transparent" }}
-              src="https://www.datocms-assets.com/53643/1724267834-group.svg"
-            />
+            <div className="flex h-6 w-6 items-center justify-center text-primary">
+              <Users className="h-6 w-6" />
+            </div>
             <div className="flex flex-col gap-1">
-              <span className="text-2xl font-medium">111</span>
-              <p className="text-w-4004">influencer trips</p>
+              <span className="text-2xl font-medium">10,000+</span>
+              <p className="text-muted-foreground">Khách hàng hài lòng</p>
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <img
-              alt=""
-              loading="lazy"
-              width={24}
-              height={24}
-              decoding="async"
-              data-nimg={1}
-              className="animate-fade-in h-6 w-6 duration-300"
-              style={{ color: "transparent" }}
-              src="https://www.datocms-assets.com/53643/1724267841-moon.svg"
-            />
+            <div className="flex h-6 w-6 items-center justify-center text-primary">
+              <Car className="h-6 w-6" />
+            </div>
             <div className="flex flex-col gap-1">
-              <span className="text-2xl font-medium">279</span>
-              <p className="text-w-4004">free nights</p>
+              <span className="text-2xl font-medium">5,000+</span>
+              <p className="text-muted-foreground">Xe đã bảo dưỡng</p>
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <img
-              alt=""
-              loading="lazy"
-              width={24}
-              height={24}
-              decoding="async"
-              data-nimg={1}
-              className="animate-fade-in h-6 w-6 duration-300"
-              style={{ color: "transparent" }}
-              src="https://www.datocms-assets.com/53643/1724267849-camera-video_1.svg"
-            />
+            <div className="flex h-6 w-6 items-center justify-center text-primary">
+              <Wrench className="h-6 w-6" />
+            </div>
             <div className="flex flex-col gap-1">
-              <span className="text-2xl font-medium">50M+</span>
-              <p className="text-w-4004">video views</p>
+              <span className="text-2xl font-medium">15,000+</span>
+              <p className="text-muted-foreground">Lần bảo dưỡng</p>
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <img
-              alt=""
-              loading="lazy"
-              width={24}
-              height={24}
-              decoding="async"
-              data-nimg={1}
-              className="animate-fade-in h-6 w-6 duration-300"
-              style={{ color: "transparent" }}
-              src="https://www.datocms-assets.com/53643/1724267920-group.svg"
-            />
+            <div className="flex h-6 w-6 items-center justify-center text-primary">
+              <Star className="h-6 w-6" />
+            </div>
             <div className="flex flex-col gap-1">
-              <span className="text-2xl font-medium">9.85/10</span>
-              <p className="text-w-4004">average trip rating</p>
+              <span className="text-2xl font-medium">4.9/5</span>
+              <p className="text-muted-foreground">Đánh giá trung bình</p>
             </div>
           </div>
         </div>
