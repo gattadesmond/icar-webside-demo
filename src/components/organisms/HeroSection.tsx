@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { ArrowRight, Play } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import SearchBox from '@/components/molecules/SearchBox';
 
 interface HeroSectionProps {
   className?: string;
@@ -63,9 +64,8 @@ export default function HeroSection({ className = '' }: HeroSectionProps) {
           <p className="text-center text-white/80 text-balance">
             Trải nghiệm dịch vụ xe hơi chất lượng cao với đội ngũ chuyên nghiệp. Từ mua bán, bảo dưỡng đến tư vấn - chúng tôi đồng hành cùng bạn.
           </p>
-          <a className="btn w-fit px-2 text-center md:px-6" href="#apply">
-            Apply to become a Wander Ambassador →
-          </a>
+          <SearchBox className="mt-8" />
+
           <div className="mx-auto flex h-6 items-center">
             <div className="relative flex w-max translate-x-[15px] md:justify-self-end">
               <img
@@ -119,23 +119,99 @@ export default function HeroSection({ className = '' }: HeroSectionProps) {
               <span className="text-white/90"> 1000+ khách hàng</span>
             </div>
           </div>
-        </div>
-        <div className="overlay absolute inset-0 isolate -z-10 lg:h-full">
-          <video
-            poster="/assets/black.webp"
-            className="absolute inset-0 -z-10 h-full w-screen object-cover"
-            autoPlay=""
-            loop=""
-            playsInline=""
-            preload="none"
-          >
-            <source />
-            <source
-              src="https://assets.wander.com/p/scott-short.webm"
-              type="video/mp4"
+
+          <div className="mr-auto flex h-fit w-full flex-wrap justify-evenly gap-x-10 gap-y-6 py-10 md:mx-auto">
+            <img
+              alt="Brand"
+              loading="lazy"
+              width={122}
+              height={14}
+              decoding="async"
+              data-nimg={1}
+              className="animate-fade-in duration-300"
+              style={{ color: "transparent" }}
+              src="https://www.datocms-assets.com/53643/1713218921-wsj.svg"
             />
-          </video>
+            <img
+              alt="Brand"
+              loading="lazy"
+              width={76}
+              height={20}
+              decoding="async"
+              data-nimg={1}
+              className="animate-fade-in duration-300"
+              style={{ color: "transparent" }}
+              src="https://www.datocms-assets.com/53643/1713218918-forbes.svg"
+            />
+            <img
+              alt="Brand"
+              loading="lazy"
+              width={136}
+              height={22}
+              decoding="async"
+              data-nimg={1}
+              className="animate-fade-in duration-300"
+              style={{ color: "transparent" }}
+              src="https://www.datocms-assets.com/53643/1713218915-insider.svg"
+            />
+            <img
+              alt="Brand"
+              loading="lazy"
+              width={59}
+              height={22}
+              decoding="async"
+              data-nimg={1}
+              className="animate-fade-in duration-300"
+              style={{ color: "transparent" }}
+              src="https://www.datocms-assets.com/53643/1713218913-skift.svg"
+            />
+            <img
+              alt="Brand"
+              loading="lazy"
+              width={136}
+              height={30}
+              decoding="async"
+              data-nimg={1}
+              className="animate-fade-in duration-300"
+              style={{ color: "transparent" }}
+              src="https://www.datocms-assets.com/53643/1713218909-rolling_stone.svg"
+            />
+            <img
+              alt="Brand"
+              loading="lazy"
+              width={141}
+              height={20}
+              decoding="async"
+              data-nimg={1}
+              className="animate-fade-in duration-300"
+              style={{ color: "transparent" }}
+              src="https://www.datocms-assets.com/53643/1719324450-fast_company_logo-1.svg"
+            />
+            <img
+              alt="Brand"
+              loading="lazy"
+              width={178}
+              height={26}
+              decoding="async"
+              data-nimg={1}
+              className="animate-fade-in duration-300"
+              style={{ color: "transparent" }}
+              src="https://www.datocms-assets.com/53643/1719324454-usa_today-2020-01-29-1.svg"
+            />
+            <img
+              alt="Brand"
+              loading="lazy"
+              width={135}
+              height={18}
+              decoding="async"
+              data-nimg={1}
+              className="animate-fade-in duration-300"
+              style={{ color: "transparent" }}
+              src="https://www.datocms-assets.com/53643/1720189467-vb.svg"
+            />
+          </div>
         </div>
+      
       </section>
 
       <section className={`relative isolate mx-auto min-h-fit w-full py-12 pt-20 md:pt-40 ${className}`}>
