@@ -8,6 +8,7 @@ import ComponentShowcase from "@/components/demo/ComponentShowcase";
 import Header from "@/components/organisms/Header";
 import HeroSection from "@/components/organisms/HeroSection";
 import HeroSection1 from "@/components/organisms/HeroSection1";
+import CaseStudySection from "@/components/organisms/CaseStudySection";
 import Footer from "@/components/organisms/Footer";
 import { Users, Car, Wrench, Star } from 'lucide-react';
 
@@ -267,6 +268,9 @@ export default function Home() {
           </li>
         </ul>
       </div>
+
+      {/* Case study */}
+      <CaseStudySection />
 
       {/* Footer */}
       <Footer />

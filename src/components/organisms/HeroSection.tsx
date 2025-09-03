@@ -59,7 +59,7 @@ export default function HeroSection({ className = '' }: HeroSectionProps) {
         </div>
 
         <div className="mx-auto flex max-w-[850px] flex-col items-center gap-6 px-5">
-          <h1 className="font-headline text-4.5xl mx-auto !block text-center font-bold text-balance md:text-5xl xl:text-5xl leading-normal uppercase">
+          <h1 className="font-headline text-3xl mx-auto !block text-center font-bold text-balance md:text-5xl xl:text-5xl leading-normal uppercase">
             Tìm Gara Sửa Xe Uy Tín, Nhanh Chóng<br /> Chính Xác Cùng ICAR
           </h1>
           <p className="text-center text-white/80 text-balance">

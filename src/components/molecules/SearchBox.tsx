@@ -54,7 +54,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
   const [selectedCity, setSelectedCity] = useState<string>('');
   const [selectedBrand, setSelectedBrand] = useState<string>('');
   const [selectedSymptom, setSelectedSymptom] = useState<string>('');
-  
+
   // State for controlling popover open/close
   const [cityOpen, setCityOpen] = useState(false);
   const [brandOpen, setBrandOpen] = useState(false);
@@ -67,7 +67,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
 
   return (
     <div className={cn(
-      "flex flex-col md:flex-row items-center bg-black/80 backdrop-blur-sm border border-white/20 rounded-2xl max-w-3xl mx-auto gap-0 pr-2",
+      "flex flex-col w-full md:flex-row items-center bg-black/80 backdrop-blur-sm  border-2 border-white/30 rounded-2xl max-w-3xl mx-auto gap-0 md:pr-2",
       className
     )}>
       {/* City Selection */}
@@ -77,7 +77,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
             variant="ghost"
             role="combobox"
             aria-expanded={cityOpen}
-            className="w-full md:w-[200px] h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between"
+            className="w-full md:w-[200px] h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between cursor-pointer"
           >
             <div className="flex items-center gap-3">
               <MapPin className="h-5 w-5 text-white" />
@@ -122,7 +122,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
       </Popover>
 
       {/* Separator */}
-      <div className="hidden md:block w-px h-8 bg-white/20 mx-2" />
+      <div className="block w-full h-[1px] md:w-px md:h-8 bg-white/20 mx-2" />
 
       {/* Car Brand Selection */}
       <Popover open={brandOpen} onOpenChange={setBrandOpen}>
@@ -131,7 +131,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
             variant="ghost"
             role="combobox"
             aria-expanded={brandOpen}
-            className="w-full md:w-[200px] h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between"
+            className="w-full md:w-[200px] h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between  cursor-pointer"
           >
             <div className="flex items-center gap-3">
               <Car className="h-5 w-5 text-white" />
@@ -176,7 +176,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
       </Popover>
 
       {/* Separator */}
-      <div className="hidden md:block w-px h-8 bg-white/20 mx-2" />
+      <div className="block w-full h-[1px] md:w-px md:h-8 bg-white/20 mx-2" />
 
       {/* Symptom Selection */}
       <Popover open={symptomOpen} onOpenChange={setSymptomOpen}>
@@ -185,7 +185,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
             variant="ghost"
             role="combobox"
             aria-expanded={symptomOpen}
-            className="w-full md:w-[200px] h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between"
+            className="w-full md:w-[200px] h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between  cursor-pointer"
           >
             <div className="flex items-center gap-3">
               <Wrench className="h-5 w-5 text-white" />
@@ -230,12 +230,15 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
       </Popover>
 
       {/* Search Button */}
-      <Button
-        size="icon"
-        className="h-12 w-12 md:ml-2 bg-white/10 hover:bg-white/20 border-0 rounded-xl"
-      >
-        <Search className="h-5 w-5 text-white" />
-      </Button>
+      <div className='w-full md:w-auto p-3'>
+        <Button
+          size="icon"
+          className="h-12 w-full md:ml-2 bg-red-500/50 hover:bg-red-500 border-0 rounded-lg md:rounded-xl"
+        >
+          <Search className="h-5 w-5 text-white" />
+        </Button>
+      </div>
+
     </div>
   );
 }
