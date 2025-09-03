@@ -166,21 +166,22 @@ export default function Header({ className = '' }: HeaderProps) {
   };
 
   return (
-    <nav className='fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-sm px-5'>
-      <div className="mx-auto  max-w-screen-xl  px-5 py-3   xl:px-20">
+    <nav className='fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-sm '>
+      <div className="mx-auto  max-w-screen-xl   py-3 px-5   xl:px-20">
         {/* Desktop Menu */}
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-start gap-2 ">
               <div className="relative h-9 w-9">
                 <Image
                   src="/images/igara-logo.png"
                   alt="IGARA Logo"
                   fill
-                  className="object-contain"
+                  className="object-contain  object-left"
                   priority
                 />
+                
               </div>
             </Link>
             <div className="flex items-center">
@@ -206,12 +207,12 @@ export default function Header({ className = '' }: HeaderProps) {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
-              <div className="relative h-8 w-24">
+              <div className="relative h-9 w-24">
                 <Image
                   src="/images/igara-logo.png"
                   alt="IGARA Logo"
                   fill
-                  className="object-contain"
+                  className="object-contain object-left"
                   priority
                 />
               </div>
