@@ -171,7 +171,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
 
   return (
     <div className={cn(
-      "flex flex-col w-full md:flex-row items-center bg-black/80 backdrop-blur-sm  border-2 border-white/30 rounded-2xl max-w-3xl mx-auto gap-0 md:pr-2",
+      "flex flex-col w-full md:w-auto md:flex-row items-center bg-black/80 backdrop-blur-sm  border-2 border-white/30 rounded-2xl max-w-3xl mx-auto gap-0",
       className
     )}>
       {/* City Selection */}
@@ -349,7 +349,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
       <div className='w-full md:w-auto p-3'>
         <Button
           size="icon"
-          className="h-12 w-full md:ml-2 bg-red-500/50 hover:bg-red-500 border-0 rounded-lg md:rounded-xl"
+          className="h-12 w-full md:w-12 md:ml-2 bg-red-500/50 hover:bg-red-500 border-0 rounded-lg md:rounded-xl"
         >
           <Search className="h-5 w-5 text-white" />
         </Button>
