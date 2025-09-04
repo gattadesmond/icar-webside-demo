@@ -72,20 +72,16 @@ export default function CaseStudySection() {
         <section className="bg-neutral-900 py-16 md:py-24 overflow-hidden">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 {/* Header */}
-                <div className="text-center mb-12">
-                    <p className="text-blue-500 text-sm font-medium tracking-wider uppercase mb-2">
-                        GARAGE THẬT. KẾT QUẢ THẬT.
-                    </p>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-                        Xem tại sao hơn 200 garage tin tưởng iGara.
-                    </h2>
-                    <p className="text-lg text-neutral-300 max-w-2xl mx-auto">
-                        Lắng nghe từ những chủ garage thực tế đã chuyển sang phần mềm sửa chữa xe hàng đầu.
-                    </p>
+              
+
+                <div className="mx-auto space-y-4 md:max-w-[600px]">
+                    <h5 className="text-gray-300 text-center text-xs font-medium whitespace-nowrap uppercase">GARAGE THẬT. KẾT QUẢ THẬT.</h5>
+                    <h2 className="font-headline text-4xl mx-auto mt-0 !block  font-bold text-balance xl:text-5xl text-center"> Xem tại sao hơn 200 garage tin tưởng iGara.</h2>
+                    <p className="text-neutral-300 text-center md:mx-auto"> Lắng nghe từ những chủ garage thực tế đã chuyển sang phần mềm sửa chữa xe hàng đầu.</p>
                 </div>
 
                 {/* Case Study Carousel */}
-                <div className="relative">
+                <div className="relative mt-16">
                     <Carousel
                         setApi={setApi}
                         plugins={[plugin.current]}

@@ -63,7 +63,7 @@ export default function Home() {
 
       <div className="mx-auto flex max-w-screen-xl flex-col gap-10 px-5 py-10 md:flex-row md:justify-between md:px-16  lg:py-20 xl:px-20">
         <div className="flex flex-col gap-y-5 lg:flex-row lg:gap-x-5">
-          <div className="relative h-24 w-24 lg:h-28 lg:w-28">
+          <div className="relative h-24 w-24 lg:h-28 lg:w-28 shrink-0">
             <Image
               src="/images/feature-1.png"
               alt="Chẩn đoán chính xác"
@@ -81,7 +81,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex flex-col gap-y-5 lg:flex-row lg:gap-x-5">
-          <div className="relative h-24 w-24 lg:h-28 lg:w-28">
+          <div className="relative h-24 w-24 lg:h-28 lg:w-28 shrink-0">
             <Image
               src="/images/feature-2.png"
               alt="Sửa chữa chuyên nghiệp"
@@ -99,7 +99,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex flex-col gap-y-5 lg:flex-row lg:gap-x-5">
-          <div className="relative h-24 w-24 lg:h-28 lg:w-28">
+          <div className="relative h-24 w-24 lg:h-28 lg:w-28 shrink-0">
             <Image
               src="/images/feature-3.png"
               alt="Dịch vụ tận tâm"
@@ -120,12 +120,12 @@ export default function Home() {
 
       <div className="mx-auto max-w-screen-xl px-5 py-10 md:px-16 md:py-20 xl:px-20">
         <div className="mb-12 space-y-4">
-          <h6 className="text-reit-gray text-[10px] font-medium tracking-[2px] uppercase">
+          <h5 className="text-gray-300 text-xs font-medium whitespace-nowrap uppercase">
             QUY TRÌNH LÀM VIỆC
-          </h6>
-          <p className="font-headline text-4.5xl mx-auto mt-0 !block text-start font-bold text-balance xl:text-5xl">
+          </h5>
+          <h2 className="font-headline text-4xl mx-auto mt-0 !block text-start font-bold text-balance xl:text-5xl">
             Tại sao chọn iGara
-          </p>
+          </h2>
           <p className="text-neutral-300">
             iGara đã tối ưu hóa quy trình sửa chữa xe hơi thành một trải nghiệm thống nhất,
             đảm bảo chất lượng và hiệu quả cao nhất cho khách hàng.
@@ -135,11 +135,11 @@ export default function Home() {
           <span className="bg-neutral-800 flex h-[42px] w-[42px] items-center justify-center rounded-full text-xl font-semibold">
             1
           </span>
-          <div className="bg-neutral-900 h-[1px] w-[calc(28%)] max-w-[365px]" />
+          <div className="bg-neutral-700 h-[1px] w-[calc(28%)] max-w-[365px]" />
           <span className="bg-neutral-800 flex h-[42px] w-[42px] items-center justify-center rounded-full text-xl font-semibold">
             2
           </span>
-          <div className="bg-neutral-900 h-[1px] w-[calc(28%)] max-w-[365px]" />
+          <div className="bg-neutral-700 h-[1px] w-[calc(28%)] max-w-[365px]" />
           <span className="bg-neutral-800 flex h-[42px] w-[42px] items-center justify-center rounded-full text-xl font-semibold">
             3
           </span>
@@ -156,7 +156,7 @@ export default function Home() {
               />
             </figure>
             <div className="min-h-[calc(100%-220px)] space-y-2 p-6">
-              <h6 className="text-reit-gray text-[10px] font-medium tracking-[2px] whitespace-nowrap uppercase">
+              <h6 className="text-gray-300 text-xs font-medium  whitespace-nowrap uppercase">
                 BƯỚC 1
               </h6>
               <h3 className="mt-0 text-start text-xl font-medium">
@@ -179,7 +179,7 @@ export default function Home() {
               />
             </figure>
             <div className="min-h-[calc(100%-220px)] space-y-2 p-6">
-              <h6 className="text-reit-gray text-[10px] font-medium tracking-[2px] whitespace-nowrap uppercase">
+              <h6 className="text-gray-300 text-xs font-medium  whitespace-nowrap uppercase">
                 BƯỚC 2
               </h6>
               <h3 className="mt-0 text-start text-xl font-medium">
@@ -202,7 +202,7 @@ export default function Home() {
               />
             </figure>
             <div className="min-h-[calc(100%-220px)] space-y-2 p-6">
-              <h6 className="text-reit-gray text-[10px] font-medium tracking-[2px] whitespace-nowrap uppercase">
+              <h6 className="text-gray-300 text-xs font-medium  whitespace-nowrap uppercase">
                 BƯỚC 3
               </h6>
               <h3 className="mt-0 text-start text-xl font-medium">
@@ -218,9 +218,9 @@ export default function Home() {
       </div>
       {/* Dịch vụ sửa xe */}
       <div className="space-y-5 px-5 py-10 md:space-y-20 md:px-16 md:py-20 xl:px-20">
-        <div className="mx-auto space-y-4 md:max-w-[465px]">
-          <h5 className="text-reit-gray text-center text-[10px] font-medium tracking-[2px] whitespace-nowrap uppercase">DỊCH VỤ CỦA CHÚNG TÔI</h5>
-          <p className="font-headline text-4.5xl mx-auto mt-0 mb-4 !block text-center font-bold text-balance xl:text-5xl">Giải pháp toàn diện cho xe</p>
+        <div className="mx-auto space-y-4 md:max-w-[600px]">
+          <h5 className="text-gray-300 text-center text-xs font-medium whitespace-nowrap uppercase">DỊCH VỤ CỦA CHÚNG TÔI</h5>
+          <h2 className="font-headline text-4xl mx-auto mt-0 !block  font-bold text-balance xl:text-5xl text-center">Giải pháp toàn diện cho xe</h2>
           <p className="text-neutral-300 text-center md:mx-auto">Dịch vụ sửa chữa xe chuyên nghiệp để giữ cho xe của bạn hoạt động mượt mà và an toàn.</p>
         </div>
         <ul className="md: flex max-w-screen-xl flex-wrap justify-center gap-6 md:mx-auto">
