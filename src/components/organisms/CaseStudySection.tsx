@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import Autoplay from "embla-carousel-autoplay";
 import SectionHeading from '@/components/molecules/SectionHeading';
+import { caseStudies } from '@/constants/caseStudies';
 import {
     Carousel,
     CarouselContent,
@@ -12,51 +13,13 @@ import {
     type CarouselApi,
 } from "@/components/ui/carousel";
 
-interface CaseStudy {
-    id: number;
-    title: string;
-    image: string;
-    alt: string;
-    logo?: string;
-    testimonial?: string;
-    author?: string;
-    position?: string;
-}
-
-const caseStudies: CaseStudy[] = [
-    {
-        id: 1,
-        title: "Tint World",
-        image: "/images/partner/partner-1.webp",
-        alt: "Tint World partner testimonial",
-        logo: "/images/partner/partner-logo-1.webp",
-        testimonial: "We onboarded 75 locations at one time — the entire thing was very smooth. Shopmonkey lived up to every promise.",
-        author: "Jeff Stark",
-        position: "COO"
-    },
-    {
-        id: 2,
-        title: "Superior Auto Clinic",
-        image: "/images/partner/partner-2.webp",
-        alt: "Superior Auto Clinic partner testimonial",
-        logo: "/images/partner/partner-logo-2.webp"
-    },
-    {
-        id: 3,
-        title: "University Auto",
-        image: "/images/partner/partner-3.webp",
-        alt: "University Auto partner testimonial",
-        logo: "/images/partner/partner-logo-1.webp"
-    }
-];
-
 export default function CaseStudySection() {
     const [api, setApi] = useState<CarouselApi>();
 
 
     // Autoplay plugin
     const plugin = useRef(
-        Autoplay({ delay: 4000, stopOnInteraction: true })
+        Autoplay({ delay: 5000, stopOnInteraction: true })
     );
 
     // Update current slide when carousel changes
@@ -70,8 +33,7 @@ export default function CaseStudySection() {
     return (
         <section className="py-16 md:py-24 overflow-hidden">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                {/* Header */}
-              
+
 
                 <SectionHeading
                     subtitle="GARAGE THẬT. KẾT QUẢ THẬT."
@@ -88,14 +50,14 @@ export default function CaseStudySection() {
                         plugins={[plugin.current]}
                         opts={{
                             align: "start",
-                            loop: true,
+                            loop: false,
                         }}
                         className="w-full [&>div]:overflow-visible"
                         onMouseEnter={plugin.current.stop}
                         onMouseLeave={plugin.current.reset}
                     >
                         <CarouselContent className="-ml-4 md:-ml-6 ">
-                            {caseStudies.map((study, index) => (
+                            {caseStudies.map((study) => (
                                 <CarouselItem key={study.id} className="pl-4 md:pl-6 basis-full md:basis-1/2 lg:basis-[550px]">
                                     <div className="relative group cursor-pointer transition-transform duration-300 overflow-hidden ">
                                         <div className="relative  rounded-lg overflow-hidden shadow-lg h-64 md:h-80">
@@ -155,15 +117,15 @@ export default function CaseStudySection() {
                     <div className="flex justify-start mt-8 space-x-4">
                         <button
                             onClick={() => api?.scrollPrev()}
-                            className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors duration-200"
+                            className="w-12 h-12 bg-neutral-800 rounded-full flex items-center justify-center hover:bg-neutral-600 cursor-pointer transition-colors duration-200"
                         >
-                            <ChevronLeft className="w-5 h-5 text-gray-600" />
+                            <ChevronLeft className="w-5 h-5 text-gray-100" />
                         </button>
                         <button
                             onClick={() => api?.scrollNext()}
-                            className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors duration-200"
+                            className="w-12 h-12 bg-neutral-800 rounded-full flex items-center justify-center hover:bg-neutral-600 cursor-pointer transition-colors duration-200"
                         >
-                            <ChevronRight className="w-5 h-5 text-gray-600" />
+                            <ChevronRight className="w-5 h-5 text-gray-100" />
                         </button>
                     </div>
                 </div>
