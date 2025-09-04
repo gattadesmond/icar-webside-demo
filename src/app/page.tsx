@@ -5,6 +5,7 @@ import ServicesSection from "@/components/organisms/ServicesSection";
 import StatsSection from "@/components/organisms/StatsSection";
 import WorkflowSection from "@/components/organisms/WorkflowSection";
 import CaseStudySection from "@/components/organisms/CaseStudySection";
+import BlogSection from "@/components/organisms/BlogSection";
 import Footer from "@/components/organisms/Footer";
 
 export default function Home() {
@@ -34,6 +35,9 @@ export default function Home() {
 
       {/* Case study */}
       <CaseStudySection />
+
+      {/* Blog Section */}
+      <BlogSection />
 
       {/* Footer */}
       <Footer />

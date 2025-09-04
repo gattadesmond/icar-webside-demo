@@ -58,12 +58,12 @@ const services: ServiceItem[] = [
 // Common styles
 const baseCardStyles = `
     linkable relative flex py-8 w-full flex-col items-center justify-center gap-2 
-    rounded-[10px] bg-[rgba(100,100,100,0.60)] backdrop-blur-md 
+    rounded-[10px] backdrop-blur-md 
     shadow-[2px_2px_7px_0_rgba(1,1,1,0.15)] 
     transition-[box-shadow] duration-300 ease-[cubic-bezier(0.64,0.04,0.35,1)] 
     hover:shadow-[2px_2px_6px_0_rgba(1,1,1,0.05),2px_4px_9px_0_rgba(1,1,1,0.15)] 
     min-[280px]:w-[calc(50%_-_10px)] min-[440px]:max-w-[25%] min-[440px]:min-w-[132px] 
-    md:bg-[rgba(0,0,0,0.60)]
+    bg-[rgba(255,255,255,0.05)]
 `;
 
 const containerStyles = `
