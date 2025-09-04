@@ -58,10 +58,10 @@ export default function HeroSection({ className = '' }: HeroSectionProps) {
 
         <div className="mx-auto flex max-w-[850px] flex-col items-center gap-6 px-5">
           <h1 className="font-headline text-4xl mx-auto !block text-center font-bold text-balance md:text-5xl xl:text-5xl leading-normal uppercase">
-            Tìm Gara Sửa Xe Uy Tín, Nhanh Chóng<br /> Chính Xác Cùng Igara
+            iGara - Nền tảng tìm gara gần đây nhanh chóng và uy tín
           </h1>
           <p className="text-center text-white/80 text-balance ">
-          Hãy cùng khám phá các địa điểm về dịch vụ về ô tô…
+            Nền tảng tra cứu, tìm kiếm gara ô tô uy tín với đầy đủ thông tin đi kèm với chất lượng. Tìm kiếm ngay.
           </p>
           <SearchBox className="mt-8" />
 
@@ -119,7 +119,7 @@ export default function HeroSection({ className = '' }: HeroSectionProps) {
             </div>
           </div>
 
-          <ServiceMenu/>
+          <ServiceMenu />
 
           <CarBrandCarousel
             className="w-full pt-8 pb-0"

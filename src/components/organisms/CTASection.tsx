@@ -32,7 +32,7 @@ export default function CTASection({ className = '' }: CTASectionProps) {
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
                   Hãy coi đây là lời mời cá nhân để khám phá đối tác với iGara
                 </h2>
-                <p className="text-lg md:text-xl text-neutral-200 leading-relaxed">
+                <p className="md:text-xl text-neutral-300 leading-relaxed">
                   Chuyển đổi garage của bạn thành một trong những cơ sở sửa chữa xe tốt nhất thế giới. 
                   Với iGara, chúng tôi biến tài sản của bạn thành một tài sản tài chính hoạt động hiệu quả 
                   và quản lý nó theo tiêu chuẩn cao nhất. Bạn gặt hái thành quả mà không cần động tay.

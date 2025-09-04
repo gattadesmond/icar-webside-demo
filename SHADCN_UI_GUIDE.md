@@ -1,8 +1,8 @@
-# Hướng dẫn sử dụng shadcn/ui trong ICAR Website
+# Hướng dẫn sử dụng shadcn/ui trong iGara Website
 
 ## Tổng quan
 
-shadcn/ui đã được tích hợp thành công vào dự án ICAR Website. Đây là một thư viện component tuyệt vời với thiết kế đẹp, accessible và dễ tùy chỉnh.
+shadcn/ui đã được tích hợp thành công vào dự án iGara Website. Đây là một thư viện component tuyệt vời với thiết kế đẹp, accessible và dễ tùy chỉnh.
 
 ## Cấu hình đã thiết lập
 

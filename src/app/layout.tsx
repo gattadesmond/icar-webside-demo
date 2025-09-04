@@ -19,8 +19,8 @@ const oswald = Oswald({
 });
 
 export const metadata: Metadata = {
-  title: "ICAR - Giải pháp xe hơi hàng đầu Việt Nam",
-  description: "Trải nghiệm dịch vụ xe hơi chất lượng cao với đội ngũ chuyên nghiệp. Từ mua bán, bảo dưỡng đến tư vấn - chúng tôi đồng hành cùng bạn.",
+  title: "iGara - Nền tảng tìm gara gần đây nhanh chóng và uy tín",
+  description: "Nền tảng tra cứu, tìm kiếm gara ô tô uy tín với đầy đủ thông tin đi kèm với chất lượng. Tìm kiếm ngay.",
 };
 
 export default function RootLayout({

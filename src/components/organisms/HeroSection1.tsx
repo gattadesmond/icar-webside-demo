@@ -28,7 +28,7 @@ export default function HeroSection1({ className = '' }: HeroSectionProps) {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/70">
                   xe hơi
                 </span>{' '}
-                cùng ICAR
+                cùng iGara
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
                 Trải nghiệm dịch vụ xe hơi chất lượng cao với đội ngũ chuyên nghiệp.
