@@ -2,14 +2,13 @@
 
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
-import { Play, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import Autoplay from "embla-carousel-autoplay";
+import SectionHeading from '@/components/molecules/SectionHeading';
 import {
     Carousel,
     CarouselContent,
     CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
     type CarouselApi,
 } from "@/components/ui/carousel";
 
@@ -69,16 +68,18 @@ export default function CaseStudySection() {
     }, [api]);
 
     return (
-        <section className="bg-neutral-900 py-16 md:py-24 overflow-hidden">
+        <section className="py-16 md:py-24 overflow-hidden">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 {/* Header */}
               
 
-                <div className="mx-auto space-y-4 md:max-w-[600px]">
-                    <h5 className="text-gray-300 text-center text-xs font-medium whitespace-nowrap uppercase">GARAGE THẬT. KẾT QUẢ THẬT.</h5>
-                    <h2 className="font-headline text-4xl mx-auto mt-0 !block  font-bold text-balance xl:text-5xl text-center"> Xem tại sao hơn 200 garage tin tưởng iGara.</h2>
-                    <p className="text-neutral-300 text-center md:mx-auto"> Lắng nghe từ những chủ garage thực tế đã chuyển sang phần mềm sửa chữa xe hàng đầu.</p>
-                </div>
+                <SectionHeading
+                    subtitle="GARAGE THẬT. KẾT QUẢ THẬT."
+                    title="Xem tại sao hơn 200 garage tin tưởng iGara."
+                    description="Lắng nghe từ những chủ garage thực tế đã chuyển sang phần mềm sửa chữa xe hàng đầu."
+                    textAlign="center"
+                    maxWidth="lg"
+                />
 
                 {/* Case Study Carousel */}
                 <div className="relative mt-16">

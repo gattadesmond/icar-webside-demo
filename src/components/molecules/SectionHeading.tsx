@@ -1,0 +1,43 @@
+interface SectionHeadingProps {
+  subtitle: string;
+  title: string;
+  description: string;
+  className?: string;
+  textAlign?: 'left' | 'center';
+  maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
+}
+
+const maxWidthClasses = {
+  sm: 'max-w-sm',
+  md: 'max-w-md', 
+  lg: 'max-w-lg',
+  xl: 'max-w-xl',
+  '2xl': 'max-w-2xl',
+  full: 'max-w-full'
+};
+
+export default function SectionHeading({
+  subtitle,
+  title,
+  description,
+  className = '',
+  textAlign = 'center',
+  maxWidth = 'xl'
+}: SectionHeadingProps) {
+  const textAlignClasses = textAlign === 'center' ? 'text-center' : 'text-start';
+  const containerClasses = textAlign === 'center' ? 'mx-auto' : '';
+  
+  return (
+    <div className={`space-y-4 ${maxWidthClasses[maxWidth]} ${containerClasses} ${className}`}>
+      <h5 className={`text-gray-300 text-xs font-medium whitespace-nowrap uppercase ${textAlignClasses}`}>
+        {subtitle}
+      </h5>
+      <h2 className={`font-headline text-4xl mt-0 !block font-bold text-balance xl:text-5xl ${textAlignClasses}`}>
+        {title}
+      </h2>
+      <p className={`text-neutral-300 ${textAlignClasses} ${textAlign === 'center' ? 'md:mx-auto' : ''}`}>
+        {description}
+      </p>
+    </div>
+  );
+}

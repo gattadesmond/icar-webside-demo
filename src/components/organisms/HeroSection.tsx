@@ -28,7 +28,7 @@ export default function HeroSection({ className = '' }: HeroSectionProps) {
 
   return (
     <>
-      <section className="relative isolate mx-auto min-h-fit w-full py-12 pt-20 pb-16 md:pt-32 md:pb-28">
+      <section className="relative isolate mx-auto min-h-fit w-full py-12 pt-20 pb-16 md:pt-40 md:pb-28">
 
         <div className="absolute inset-0 isolate -z-10 lg:h-full overlay bg-cover bg-center overflow-hidden">
           {images.map((image, index) => (
@@ -57,11 +57,11 @@ export default function HeroSection({ className = '' }: HeroSectionProps) {
         </div>
 
         <div className="mx-auto flex max-w-[850px] flex-col items-center gap-6 px-5">
-          <h1 className="font-headline text-3xl mx-auto !block text-center font-bold text-balance md:text-5xl xl:text-5xl leading-normal uppercase">
-            Tìm Gara Sửa Xe Uy Tín, Nhanh Chóng<br /> Chính Xác Cùng ICAR
+          <h1 className="font-headline text-4xl mx-auto !block text-center font-bold text-balance md:text-5xl xl:text-5xl leading-normal uppercase">
+            Tìm Gara Sửa Xe Uy Tín, Nhanh Chóng<br /> Chính Xác Cùng Igara
           </h1>
-          <p className="text-center text-white/80 text-balance">
-            Trải nghiệm dịch vụ xe hơi chất lượng cao với đội ngũ chuyên nghiệp. Từ mua bán, bảo dưỡng đến tư vấn - chúng tôi đồng hành cùng bạn.
+          <p className="text-center text-white/80 text-balance ">
+          Hãy cùng khám phá các địa điểm về dịch vụ về ô tô…
           </p>
           <SearchBox className="mt-8" />
 
