@@ -6,6 +6,7 @@ import StatsSection from "@/components/organisms/StatsSection";
 import WorkflowSection from "@/components/organisms/WorkflowSection";
 import CaseStudySection from "@/components/organisms/CaseStudySection";
 import BlogSection from "@/components/organisms/BlogSection";
+import CTASection from "@/components/organisms/CTASection";
 import Footer from "@/components/organisms/Footer";
 
 export default function Home() {
@@ -38,6 +39,9 @@ export default function Home() {
 
       {/* Blog Section */}
       <BlogSection />
+
+      {/* CTA Section */}
+      <CTASection />
 
       {/* Footer */}
       <Footer />
