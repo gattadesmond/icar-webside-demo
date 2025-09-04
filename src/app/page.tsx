@@ -1,13 +1,7 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
-import ComponentShowcase from "@/components/demo/ComponentShowcase";
 import Header from "@/components/organisms/Header";
 import HeroSection from "@/components/organisms/HeroSection";
-import HeroSection1 from "@/components/organisms/HeroSection1";
+import ServiceMenu from "@/components/organisms/ServiceMenu";
 import CaseStudySection from "@/components/organisms/CaseStudySection";
 import Footer from "@/components/organisms/Footer";
 import { Users, Car, Wrench, Star } from 'lucide-react';
@@ -20,6 +14,10 @@ export default function Home() {
 
       {/* Hero Section */}
       <HeroSection />
+      
+      {/* Service Menu */}
+      <ServiceMenu />
+      
       <section className="relative isolate mx-auto min-h-fit w-full max-w-screen-xl px-5 py-10 md:px-20 md:py-0">
         <div className="grid grid-cols-2 gap-x-12 gap-y-16 md:grid-cols-4">
           <div className="flex flex-col gap-4">
@@ -145,7 +143,7 @@ export default function Home() {
           </span>
         </div>
         <div className="mt-6 flex max-w-[calc(410px*3+24px*2)] flex-col items-center justify-center gap-6 md:gap-y-10 lg:mx-auto lg:flex-row lg:justify-start">
-          <div className="bg-neutral-800 h-fit w-full max-w-[410px] grow overflow-hidden rounded-2xl">
+          <div className="bg-neutral-800 h-fit w-full max-w-[410px] grow overflow-hidden rounded-2xl ">
             <figure className="relative h-[220px] w-full">
               <Image
                 src="/images/step-1.jpg"

@@ -1,11 +1,9 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { ArrowRight, Play } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import SearchBox from '@/components/molecules/SearchBox';
 import CarBrandCarousel from '@/components/molecules/CarBrandCarousel';
+import ServiceMenu from '@/components/organisms/ServiceMenu';
 
 interface HeroSectionProps {
   className?: string;
@@ -120,6 +118,8 @@ export default function HeroSection({ className = '' }: HeroSectionProps) {
               <span className="text-white/90"> 1000+ khách hàng</span>
             </div>
           </div>
+
+          <ServiceMenu/>
 
           <CarBrandCarousel
             className="w-full pt-8 pb-0"
