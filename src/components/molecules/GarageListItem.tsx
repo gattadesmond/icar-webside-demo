@@ -52,7 +52,7 @@ export default function GarageListItem({ garage, rank }: GarageListItemProps) {
   };
 
   return (
-    <Card className="w-full max-w-sm">
+    <Card className="w-full">
       <CardContent className="">
         {/* Garage Image */}
         <div className="relative mb-2">

@@ -38,7 +38,7 @@ export default function ViewToggle({ currentView, onViewChange, className = '' }
         }`}
       >
         <MapPin className="w-4 h-4" />
-        <span className="hidden sm:inline">Bản đồ</span>
+        <span className="hidden sm:inline">Danh sách + Bản đồ</span>
       </Button>
     </div>
   );

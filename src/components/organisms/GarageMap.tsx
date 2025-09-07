@@ -58,76 +58,71 @@ export default function GarageMap({ garages, selectedGarage, onGarageSelect, cla
 
   return (
     <div className={`relative w-full h-full min-h-[600px] bg-gray-100 rounded-lg overflow-hidden ${className}`}>
-      {/* Map Placeholder - In real app, this would be Google Maps or Mapbox */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-green-100">
-        {/* Grid pattern to simulate map */}
-        <div 
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '20px 20px'
-          }}
+      {/* Google Maps Demo - Embedded iframe */}
+      <div className="absolute inset-0">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3251233643167!2d106.7009!3d10.7769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f4b90b68bd3%3A0x4b0b3d7c8b8b8b8b!2sHo%20Chi%20Minh%20City%2C%20Vietnam!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          className="rounded-lg"
         />
         
-        {/* Streets simulation */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-0 right-0 h-1 bg-gray-400 opacity-30" />
-          <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-400 opacity-30" />
-          <div className="absolute top-3/4 left-0 right-0 h-1 bg-gray-400 opacity-30" />
-          <div className="absolute left-1/4 top-0 bottom-0 w-1 bg-gray-400 opacity-30" />
-          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gray-400 opacity-30" />
-          <div className="absolute left-3/4 top-0 bottom-0 w-1 bg-gray-400 opacity-30" />
+        {/* Overlay for custom markers */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Custom markers overlay */}
+          <div className="absolute inset-0">
+            {/* Garage Markers */}
+            {garagesWithCoords.map((garage, index) => {
+              const position = {
+                top: `${20 + (index * 15) % 60}%`,
+                left: `${15 + (index * 20) % 70}%`,
+              };
+
+              return (
+                <div
+                  key={garage.id}
+                  className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group pointer-events-auto"
+                  style={position}
+                  onClick={() => onGarageSelect(garage)}
+                >
+                  {/* Marker */}
+                  <div className={`relative w-8 h-8 rounded-full border-2 border-white shadow-lg transition-all duration-200 ${
+                    selectedGarage?.id === garage.id 
+                      ? 'bg-red-600 scale-125' 
+                      : garage.status === 'open' 
+                        ? 'bg-green-500 hover:bg-green-600' 
+                        : 'bg-gray-500 hover:bg-gray-600'
+                  }`}>
+                    <MapPin className="w-4 h-4 text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+                  </div>
+
+                  {/* Tooltip */}
+                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                    <Card className="w-48 p-2 shadow-lg">
+                      <CardContent className="p-0">
+                        <div className="space-y-1">
+                          <h4 className="font-semibold text-sm truncate">{garage.name}</h4>
+                          <div className="flex items-center gap-1">
+                            <Star className="w-3 h-3 text-yellow-500 fill-current" />
+                            <span className="text-xs text-gray-600">{garage.rating} ({garage.reviewCount})</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Clock className="w-3 h-3 text-gray-500" />
+                            <span className="text-xs text-gray-600">{garage.openTime}</span>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
-
-        {/* Garage Markers */}
-        {garagesWithCoords.map((garage, index) => {
-          const position = {
-            top: `${20 + (index * 15) % 60}%`,
-            left: `${15 + (index * 20) % 70}%`,
-          };
-
-          return (
-            <div
-              key={garage.id}
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group"
-              style={position}
-              onClick={() => onGarageSelect(garage)}
-            >
-              {/* Marker */}
-              <div className={`relative w-8 h-8 rounded-full border-2 border-white shadow-lg transition-all duration-200 ${
-                selectedGarage?.id === garage.id 
-                  ? 'bg-red-600 scale-125' 
-                  : garage.status === 'open' 
-                    ? 'bg-green-500 hover:bg-green-600' 
-                    : 'bg-gray-500 hover:bg-gray-600'
-              }`}>
-                <MapPin className="w-4 h-4 text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
-              </div>
-
-              {/* Tooltip */}
-              <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                <Card className="w-48 p-2 shadow-lg">
-                  <CardContent className="p-0">
-                    <div className="space-y-1">
-                      <h4 className="font-semibold text-sm truncate">{garage.name}</h4>
-                      <div className="flex items-center gap-1">
-                        <Star className="w-3 h-3 text-yellow-500 fill-current" />
-                        <span className="text-xs text-gray-600">{garage.rating} ({garage.reviewCount})</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-3 h-3 text-gray-500" />
-                        <span className="text-xs text-gray-600">{garage.openTime}</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          );
-        })}
 
         {/* Loading overlay */}
         {!mapLoaded && (

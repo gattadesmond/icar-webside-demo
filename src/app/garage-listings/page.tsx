@@ -123,7 +123,7 @@ export default function GarageListingsPage() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <Header />
+      <Header  />
 
       {/* Main Content */}
       <main className="bg-black">
@@ -146,7 +146,7 @@ export default function GarageListingsPage() {
         </div>
 
         {/* Search Section */}
-        <Container className="md:pt-0 pt-0 mt-5">
+        <Container className="md:pt-0 pt-0 mt-5 max-w-9xl">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <h1 className="text-2xl font-bold text-white">Garage sửa xe TOYOTA ở Tp.HCM</h1>
             <ViewToggle 
@@ -159,11 +159,11 @@ export default function GarageListingsPage() {
         </Container>
 
         {/* Content Area */}
-        <Container className="md:pt-0 pt-0">
+        <Container className="md:pt-0 pt-0  max-w-9xl">
           {currentView === 'list' ? (
             <>
               {/* Garage List */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {mockGarages.map((garage, index) => (
                   <GarageListItem
                     key={garage.id}
@@ -181,14 +181,43 @@ export default function GarageListingsPage() {
               </div>
             </>
           ) : (
-            /* Map View */
-            <div className="mt-6">
-              <GarageMap
-                garages={mockGarages}
-                selectedGarage={selectedGarage}
-                onGarageSelect={handleGarageSelect}
-                className="w-full h-[70vh] min-h-[600px]"
-              />
+            /* Split Layout: List + Map */
+            <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6 h-[70vh] min-h-[600px]">
+              {/* Left Side - Garage List */}
+              <div className="space-y-4 overflow-y-auto pr-2">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-lg font-semibold text-white">
+                    {mockGarages.length} gara được tìm thấy
+                  </h3>
+                </div>
+                
+                {mockGarages.map((garage, index) => (
+                  <div
+                    key={garage.id}
+                    className={`cursor-pointer transition-all duration-200 ${
+                      selectedGarage?.id === garage.id 
+                        ? 'ring-2 ring-red-500 rounded-lg' 
+                        : 'hover:bg-white/5 rounded-lg p-1'
+                    }`}
+                    onClick={() => handleGarageSelect(garage)}
+                  >
+                    <GarageListItem
+                      garage={garage}
+                      rank={index + 1}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* Right Side - Map */}
+              <div className="relative">
+                <GarageMap
+                  garages={mockGarages}
+                  selectedGarage={selectedGarage}
+                  onGarageSelect={handleGarageSelect}
+                  className="w-full h-full rounded-lg"
+                />
+              </div>
             </div>
           )}
         </Container>
