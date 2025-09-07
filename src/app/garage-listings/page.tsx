@@ -1,9 +1,14 @@
+'use client';
+
+import { useState } from 'react';
 import Header from "@/components/organisms/Header";
 import Footer from "@/components/organisms/Footer";
 import GarageListItem from "@/components/molecules/GarageListItem";
 import RepairPalSearchBox from "@/components/organisms/RepairPalSearchBox";
 import SearchBox from '@/components/molecules/SearchBox';
 import Container from '@/components/atoms/Container';
+import ViewToggle from '@/components/molecules/ViewToggle';
+import GarageMap from '@/components/organisms/GarageMap';
 import Image from 'next/image';
 interface Garage {
   id: number;
@@ -101,8 +106,22 @@ const mockGarages: Garage[] = [
 ];
 
 export default function GarageListingsPage() {
+  const [currentView, setCurrentView] = useState<'list' | 'map'>('list');
+  const [selectedGarage, setSelectedGarage] = useState<Garage | null>(null);
+
+  const handleViewChange = (view: 'list' | 'map') => {
+    setCurrentView(view);
+    if (view === 'list') {
+      setSelectedGarage(null);
+    }
+  };
+
+  const handleGarageSelect = (garage: Garage) => {
+    setSelectedGarage(garage);
+  };
+
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen">
       {/* Header */}
       <Header />
 
@@ -119,42 +138,59 @@ export default function GarageListingsPage() {
               priority
             />
             {/* Gradient overlay for better text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/90 " />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/90" />
           </div>
           <Container className="md:py-0 py-0 mt-5">
             <SearchBox />
           </Container>
         </div>
 
-
         {/* Search Section */}
         <Container className="md:pt-0 pt-0 mt-5">
-          <h1 className="text-2xl font-bold">Garage sửa xe TOYOTA ở Tp.HCM</h1>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <h1 className="text-2xl font-bold text-white">Garage sửa xe TOYOTA ở Tp.HCM</h1>
+            <ViewToggle 
+              currentView={currentView} 
+              onViewChange={handleViewChange}
+              className="self-end sm:self-auto"
+            />
+          </div>
           <RepairPalSearchBox />
         </Container>
 
-
+        {/* Content Area */}
         <Container className="md:pt-0 pt-0">
-          {/* Page Header */}
+          {currentView === 'list' ? (
+            <>
+              {/* Garage List */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {mockGarages.map((garage, index) => (
+                  <GarageListItem
+                    key={garage.id}
+                    garage={garage}
+                    rank={index + 1}
+                  />
+                ))}
+              </div>
 
-
-          {/* Garage List */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {mockGarages.map((garage, index) => (
-              <GarageListItem
-                key={garage.id}
-                garage={garage}
-                rank={index + 1}
+              {/* Load More Button */}
+              <div className="text-center mt-12">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors">
+                  Xem thêm gara
+                </button>
+              </div>
+            </>
+          ) : (
+            /* Map View */
+            <div className="mt-6">
+              <GarageMap
+                garages={mockGarages}
+                selectedGarage={selectedGarage}
+                onGarageSelect={handleGarageSelect}
+                className="w-full h-[70vh] min-h-[600px]"
               />
-            ))}
-          </div>
-
-          {/* Load More Button */}
-          <div className="text-center mt-12">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors">
-              Xem thêm gara
-            </button>
-          </div>
+            </div>
+          )}
         </Container>
       </main>
 
