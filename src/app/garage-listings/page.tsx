@@ -201,7 +201,7 @@ export default function GarageListingsPage() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <Header  />
+      <Header />
 
       {/* Main Content */}
       <main className="bg-black">
@@ -227,8 +227,8 @@ export default function GarageListingsPage() {
         <Container className="md:pt-0 pt-0 mt-5 max-w-9xl">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <h1 className="text-2xl font-bold text-white">Garage sửa xe TOYOTA ở Tp.HCM</h1>
-            <ViewToggle 
-              currentView={currentView} 
+            <ViewToggle
+              currentView={currentView}
               onViewChange={handleViewChange}
               className="self-end sm:self-auto"
             />
@@ -260,35 +260,28 @@ export default function GarageListingsPage() {
             </>
           ) : (
             /* Split Layout: List + Map */
-            <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6 h-[70vh] min-h-[600px]">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 ">
               {/* Left Side - Garage List */}
-              <div className="space-y-4 overflow-y-auto pr-2">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-semibold text-white">
-                    {mockGarages.length} gara được tìm thấy
-                  </h3>
-                </div>
-                
+              <div className="space-y-4 grid grid-cols-1 lg:grid-cols-2 gap-6 ">
+
                 {mockGarages.map((garage, index) => (
                   <div
                     key={garage.id}
-                    className={`cursor-pointer transition-all duration-200 ${
-                      selectedGarage?.id === garage.id 
-                        ? 'ring-2 ring-red-500 rounded-lg' 
-                        : 'hover:bg-white/5 rounded-lg p-1'
-                    }`}
+                    className={`cursor-pointer transition-all duration-200  ${selectedGarage?.id === garage.id
+                        ? 'ring-2 ring-red-500 rounded-xl'
+                        : ''
+                      }`}
                     onClick={() => handleGarageSelect(garage)}
                   >
                     <GarageListItem
                       garage={garage}
-                      rank={index + 1}
                     />
                   </div>
                 ))}
               </div>
 
               {/* Right Side - Map */}
-              <div className="relative">
+              <div className="sticky top-[70px]" style={{ height: 'calc(100vh - 90px)' }}>
                 <GarageMap
                   garages={mockGarages}
                   selectedGarage={selectedGarage}

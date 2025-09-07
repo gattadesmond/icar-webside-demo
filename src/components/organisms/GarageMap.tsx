@@ -57,7 +57,7 @@ export default function GarageMap({ garages, selectedGarage, onGarageSelect, cla
   }, []);
 
   return (
-    <div className={`relative w-full h-full min-h-[600px] bg-gray-100 rounded-lg overflow-hidden ${className}`}>
+    <div className={`relative w-full h-full bg-gray-100 rounded-lg overflow-hidden ${className}`}>
       {/* Google Maps Demo - Embedded iframe */}
       <div className="absolute inset-0">
         <iframe

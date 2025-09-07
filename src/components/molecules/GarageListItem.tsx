@@ -21,10 +21,9 @@ interface Garage {
 
 interface GarageListItemProps {
   garage: Garage;
-  rank: number;
 }
 
-export default function GarageListItem({ garage, rank }: GarageListItemProps) {
+export default function GarageListItem({ garage }: GarageListItemProps) {
   const renderStars = (rating: number) => {
     const stars = [];
     const fullStars = Math.floor(rating);
@@ -53,7 +52,7 @@ export default function GarageListItem({ garage, rank }: GarageListItemProps) {
   };
 
   return (
-    <Card className="w-full py-4 relative pb-16">
+    <Card className="w-full py-4 relative pb-16 h-full">
       <CardContent className="px-4 ">
         {/* Garage Image - 16:9 Aspect Ratio */}
         <div className="relative mb-2">
@@ -72,7 +71,7 @@ export default function GarageListItem({ garage, rank }: GarageListItemProps) {
         <div className="space-y-3 mt-4 ">
           {/* Garage Name */}
           <h3 className="text-base font-bold leading-tight">
-            {rank}. {garage.name}
+            {garage.name}
           </h3>
 
           {/* Rating and Distance */}
