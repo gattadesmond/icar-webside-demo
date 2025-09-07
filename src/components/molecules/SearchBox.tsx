@@ -184,7 +184,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
               variant="ghost"
               role="combobox"
               aria-expanded={cityOpen}
-              className="w-full md:w-auto md:grow h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between cursor-pointer"
+              className="w-full md:w-auto  md:flex-1 h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between cursor-pointer"
             >
               <div className="flex items-center gap-3">
                 <MapPin className="h-5 w-5 text-white" />
@@ -209,7 +209,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
               variant="ghost"
               role="combobox"
               aria-expanded={cityOpen}
-              className="w-full md:w-auto md:grow h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between cursor-pointer"
+              className="w-full md:w-auto  md:flex-1 h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between cursor-pointer"
             >
               <div className="flex items-center gap-3">
                 <MapPin className="h-5 w-5 text-white" />
@@ -242,7 +242,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
               variant="ghost"
               role="combobox"
               aria-expanded={brandOpen}
-              className="w-full md:w-auto md:grow h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between  cursor-pointer"
+              className="w-full md:w-auto  md:flex-1 h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between  cursor-pointer"
             >
               <div className="flex items-center gap-3">
                 <Car className="h-5 w-5 text-white" />
@@ -267,7 +267,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
               variant="ghost"
               role="combobox"
               aria-expanded={brandOpen}
-              className="w-full md:w-auto md:grow h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between  cursor-pointer"
+              className="w-full md:w-auto  md:flex-1 h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between  cursor-pointer"
             >
               <div className="flex items-center gap-3">
                 <Car className="h-5 w-5 text-white" />
@@ -300,7 +300,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
               variant="ghost"
               role="combobox"
               aria-expanded={symptomOpen}
-              className="w-full md:w-auto md:grow h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between  cursor-pointer"
+              className="w-full md:w-auto  md:flex-1 h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between  cursor-pointer"
             >
               <div className="flex items-center gap-3">
                 <Wrench className="h-5 w-5 text-white" />
@@ -325,7 +325,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
               variant="ghost"
               role="combobox"
               aria-expanded={symptomOpen}
-              className="w-full md:w-auto md:grow h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between  cursor-pointer"
+              className="w-full md:w-auto  md:flex-1 h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between  cursor-pointer"
             >
               <div className="flex items-center gap-3">
                 <Wrench className="h-5 w-5 text-white" />

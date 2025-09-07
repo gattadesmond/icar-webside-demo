@@ -4,7 +4,7 @@ import GarageListItem from "@/components/molecules/GarageListItem";
 import RepairPalSearchBox from "@/components/organisms/RepairPalSearchBox";
 import SearchBox from '@/components/molecules/SearchBox';
 import Container from '@/components/atoms/Container';
-
+import Image from 'next/image';
 interface Garage {
   id: number;
   name: string;
@@ -107,18 +107,31 @@ export default function GarageListingsPage() {
       <Header />
 
       {/* Main Content */}
-      <main className="pt-20">
+      <main className="bg-black">
+        <div className="relative pt-20 pb-10">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <Image
+              src="/images/sua-oto.webp"
+              alt="Modern garage with advanced technology"
+              fill
+              className="object-cover"
+              priority
+            />
+            {/* Gradient overlay for better text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/90 " />
+          </div>
+          <Container className="md:py-0 py-0 mt-5">
+            <SearchBox />
+          </Container>
+        </div>
 
-
-        <SearchBox />
 
         {/* Search Section */}
-        <Container className="md:pt-0 pt-0">
-          <h1 className="text-4xl font-bold">Garage sửa xe TOYOTA ở Tp.HCM</h1>
+        <Container className="md:pt-0 pt-0 mt-5">
+          <h1 className="text-2xl font-bold">Garage sửa xe TOYOTA ở Tp.HCM</h1>
+          <RepairPalSearchBox />
         </Container>
-        <RepairPalSearchBox />
-
-
 
 
         <Container className="md:pt-0 pt-0">
