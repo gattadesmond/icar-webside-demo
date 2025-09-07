@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { Star, Home, Wrench, Mountain, Waves, Award } from 'lucide-react';
+import Container from '@/components/atoms/Container';
 
 interface AboutSectionProps {
   className?: string;
@@ -59,7 +60,7 @@ export default function AboutSection({ className = '' }: AboutSectionProps) {
       id="about"
       className={` overflow-hidden relative ${className}`}
     >
-      <div className="mx-auto max-w-screen-xl px-5 py-10 md:px-16 md:py-20 md:pt-0 pt-0 xl:px-20">
+      <Container className="md:pt-0 pt-0">
         {/* Content */}
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
           <div className="z-10 max-w-[600px] space-y-8 xl:max-w-[755px]">
@@ -102,7 +103,7 @@ export default function AboutSection({ className = '' }: AboutSectionProps) {
             />
           </div>
         </div>
-      </div>
+      </Container>
 
       {/* Spacer for desktop layout */}
       <div className="z-10 min-[1113px]:ml-auto xl:px-0" />

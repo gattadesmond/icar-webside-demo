@@ -8,6 +8,7 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, Command
 import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { cn } from '@/lib/utils';
+import { useRouter } from 'next/navigation';
 
 interface SearchBoxProps {
   className?: string;
@@ -53,6 +54,7 @@ const symptoms = [
 ];
 
 export default function SearchBox({ className = '' }: SearchBoxProps) {
+  const router = useRouter();
   const [selectedCity, setSelectedCity] = useState<string>('');
   const [selectedBrand, setSelectedBrand] = useState<string>('');
   const [selectedSymptom, setSelectedSymptom] = useState<string>('');
@@ -71,9 +73,9 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
   };
 
   // City Selection Component
-  const CitySelection = ({ setOpen, setSelected }: { 
-    setOpen: (open: boolean) => void; 
-    setSelected: (value: string) => void; 
+  const CitySelection = ({ setOpen, setSelected }: {
+    setOpen: (open: boolean) => void;
+    setSelected: (value: string) => void;
   }) => (
     <Command>
       <CommandInput placeholder="Tìm thành phố..." />
@@ -104,9 +106,9 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
   );
 
   // Brand Selection Component
-  const BrandSelection = ({ setOpen, setSelected }: { 
-    setOpen: (open: boolean) => void; 
-    setSelected: (value: string) => void; 
+  const BrandSelection = ({ setOpen, setSelected }: {
+    setOpen: (open: boolean) => void;
+    setSelected: (value: string) => void;
   }) => (
     <Command>
       <CommandInput placeholder="Tìm hãng xe..." />
@@ -137,9 +139,9 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
   );
 
   // Symptom Selection Component
-  const SymptomSelection = ({ setOpen, setSelected }: { 
-    setOpen: (open: boolean) => void; 
-    setSelected: (value: string) => void; 
+  const SymptomSelection = ({ setOpen, setSelected }: {
+    setOpen: (open: boolean) => void;
+    setSelected: (value: string) => void;
   }) => (
     <Command>
       <CommandInput placeholder="Tìm triệu chứng..." />
@@ -171,7 +173,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
 
   return (
     <div className={cn(
-      "flex flex-col w-full md:w-auto md:flex-row items-center bg-black/80 backdrop-blur-sm  border-2 border-white/30 rounded-2xl max-w-3xl mx-auto gap-0",
+      "flex flex-col w-full md:flex-row items-center bg-black/80 backdrop-blur-sm  border-2 border-white/30 rounded-2xl max-w-3xl  mx-auto gap-0",
       className
     )}>
       {/* City Selection */}
@@ -182,13 +184,13 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
               variant="ghost"
               role="combobox"
               aria-expanded={cityOpen}
-              className="w-full md:w-[200px] h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between cursor-pointer"
+              className="w-full md:w-auto md:grow h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between cursor-pointer"
             >
               <div className="flex items-center gap-3">
                 <MapPin className="h-5 w-5 text-white" />
                 <div className="flex flex-col items-start">
                   <span className="text-xs text-white/60">Thành phố</span>
-                  <span className="text-sm font-medium text-white truncate">
+                  <span className="text-base font-medium text-white truncate">
                     {selectedCity ? getDisplayText(selectedCity, cities) : 'Chọn thành phố'}
                   </span>
                 </div>
@@ -207,13 +209,13 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
               variant="ghost"
               role="combobox"
               aria-expanded={cityOpen}
-              className="w-full md:w-[200px] h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between cursor-pointer"
+              className="w-full md:w-auto md:grow h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between cursor-pointer"
             >
               <div className="flex items-center gap-3">
                 <MapPin className="h-5 w-5 text-white" />
                 <div className="flex flex-col items-start">
                   <span className="text-xs text-white/60">Thành phố</span>
-                  <span className="text-sm font-medium text-white truncate">
+                  <span className="text-base font-medium text-white truncate">
                     {selectedCity ? getDisplayText(selectedCity, cities) : 'Chọn thành phố'}
                   </span>
                 </div>
@@ -221,7 +223,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
               <ChevronsUpDown className="h-4 w-4 text-white/50" />
             </Button>
           </DrawerTrigger>
-          <DrawerContent className="h-[90vh]">
+          <DrawerContent className="h-[70vh]">
             <div className="mt-4 border-t h-full overflow-y-auto">
               <CitySelection setOpen={setCityOpen} setSelected={setSelectedCity} />
             </div>
@@ -230,7 +232,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
       )}
 
       {/* Separator */}
-      <div className="block w-full h-[1px] md:w-px md:h-8 bg-white/20 mx-2" />
+      <div className="block w-full h-[1px] md:w-px md:h-8 bg-white/20 mx-2 shrink-0" />
 
       {/* Car Brand Selection */}
       {isDesktop ? (
@@ -240,13 +242,13 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
               variant="ghost"
               role="combobox"
               aria-expanded={brandOpen}
-              className="w-full md:w-[200px] h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between  cursor-pointer"
+              className="w-full md:w-auto md:grow h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between  cursor-pointer"
             >
               <div className="flex items-center gap-3">
                 <Car className="h-5 w-5 text-white" />
                 <div className="flex flex-col items-start">
                   <span className="text-xs text-white/60">Hãng xe</span>
-                  <span className="text-sm font-medium text-white truncate">
+                  <span className="text-base font-medium text-white truncate">
                     {selectedBrand ? getDisplayText(selectedBrand, carBrands) : 'Chọn hãng xe'}
                   </span>
                 </div>
@@ -265,13 +267,13 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
               variant="ghost"
               role="combobox"
               aria-expanded={brandOpen}
-              className="w-full md:w-[200px] h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between  cursor-pointer"
+              className="w-full md:w-auto md:grow h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between  cursor-pointer"
             >
               <div className="flex items-center gap-3">
                 <Car className="h-5 w-5 text-white" />
                 <div className="flex flex-col items-start">
                   <span className="text-xs text-white/60">Hãng xe</span>
-                  <span className="text-sm font-medium text-white truncate">
+                  <span className="text-base font-medium text-white truncate">
                     {selectedBrand ? getDisplayText(selectedBrand, carBrands) : 'Chọn hãng xe'}
                   </span>
                 </div>
@@ -279,7 +281,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
               <ChevronsUpDown className="h-4 w-4 text-white/50" />
             </Button>
           </DrawerTrigger>
-          <DrawerContent className="h-[90vh]">
+          <DrawerContent className="h-[70vh]">
             <div className="mt-4 border-t h-full overflow-y-auto">
               <BrandSelection setOpen={setBrandOpen} setSelected={setSelectedBrand} />
             </div>
@@ -288,7 +290,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
       )}
 
       {/* Separator */}
-      <div className="block w-full h-[1px] md:w-px md:h-8 bg-white/20 mx-2" />
+      <div className="block w-full h-[1px] md:w-px md:h-8 bg-white/20 mx-2 shrink-0" />
 
       {/* Symptom Selection */}
       {isDesktop ? (
@@ -298,13 +300,13 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
               variant="ghost"
               role="combobox"
               aria-expanded={symptomOpen}
-              className="w-full md:w-[200px] h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between  cursor-pointer"
+              className="w-full md:w-auto md:grow h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between  cursor-pointer"
             >
               <div className="flex items-center gap-3">
                 <Wrench className="h-5 w-5 text-white" />
                 <div className="flex flex-col items-start">
                   <span className="text-xs text-white/60">Triệu chứng</span>
-                  <span className="text-sm font-medium text-white truncate">
+                  <span className="text-base font-medium text-white truncate">
                     {selectedSymptom ? getDisplayText(selectedSymptom, symptoms) : 'Chọn triệu chứng'}
                   </span>
                 </div>
@@ -323,13 +325,13 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
               variant="ghost"
               role="combobox"
               aria-expanded={symptomOpen}
-              className="w-full md:w-[200px] h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between  cursor-pointer"
+              className="w-full md:w-auto md:grow h-16 px-4 text-left hover:bg-white/10 rounded-xl border-0 justify-between  cursor-pointer"
             >
               <div className="flex items-center gap-3">
                 <Wrench className="h-5 w-5 text-white" />
                 <div className="flex flex-col items-start">
                   <span className="text-xs text-white/60">Triệu chứng</span>
-                  <span className="text-sm font-medium text-white truncate">
+                  <span className="text-base font-medium text-white truncate">
                     {selectedSymptom ? getDisplayText(selectedSymptom, symptoms) : 'Chọn triệu chứng'}
                   </span>
                 </div>
@@ -337,7 +339,7 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
               <ChevronsUpDown className="h-4 w-4 text-white/50" />
             </Button>
           </DrawerTrigger>
-          <DrawerContent className="h-[90vh]">
+          <DrawerContent className="h-[70vh]">
             <div className="mt-4 border-t h-full overflow-y-auto">
               <SymptomSelection setOpen={setSymptomOpen} setSelected={setSelectedSymptom} />
             </div>
@@ -350,6 +352,9 @@ export default function SearchBox({ className = '' }: SearchBoxProps) {
         <Button
           size="icon"
           className="h-12 w-full md:w-12 md:ml-2 bg-red-500/50 hover:bg-red-500 border-0 rounded-lg md:rounded-xl"
+          onClick={() => {
+            router.push('/garage-listings');
+          }}
         >
           <Search className="h-5 w-5 text-white" />
         </Button>

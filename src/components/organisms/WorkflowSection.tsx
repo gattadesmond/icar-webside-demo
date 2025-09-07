@@ -1,6 +1,7 @@
 import SectionHeading from '@/components/molecules/SectionHeading';
 import WorkflowStepCard from '@/components/molecules/WorkflowStepCard';
 import { workflowSteps } from '@/constants/workflow';
+import Container from '@/components/atoms/Container';
 import React from 'react';
 
 interface WorkflowSectionProps {
@@ -9,7 +10,7 @@ interface WorkflowSectionProps {
 
 export default function WorkflowSection({ className = '' }: WorkflowSectionProps) {
     return (
-        <section className={`mx-auto max-w-screen-xl px-5 py-10 md:px-16 md:py-20 xl:px-20 ${className}`}>
+        <Container as="section" className={className}>
             <SectionHeading
                 subtitle="QUY TRÌNH LÀM VIỆC"
                 title="Tại sao chọn iGara"
@@ -58,6 +59,6 @@ export default function WorkflowSection({ className = '' }: WorkflowSectionProps
                     />
                 ))}
             </div>
-        </section>
+        </Container>
     );
 }

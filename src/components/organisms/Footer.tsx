@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Container from '@/components/atoms/Container';
 import { 
   Phone, 
   Mail, 
@@ -20,7 +21,7 @@ export default function Footer() {
   return (
     <footer className="bg-black border-t border-white/10">
       {/* Main Footer Content */}
-      <div className="mx-auto max-w-screen-xl px-5 py-16 md:px-16 xl:px-20">
+      <Container className="py-16">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
           {/* Company Info */}
           <div className="space-y-6">
@@ -131,11 +132,11 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
 
       {/* Bottom Footer */}
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-screen-xl px-5 py-6 md:px-16 xl:px-20">
+        <Container className="py-6">
           <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
             <p className="text-white/60 text-sm">
               © 2024 iGara. Tất cả quyền được bảo lưu.
@@ -152,7 +153,7 @@ export default function Footer() {
               </a>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
     </footer>
   );
