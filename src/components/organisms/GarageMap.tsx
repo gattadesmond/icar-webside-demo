@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { MapPin, Star, Clock, Phone, Navigation } from 'lucide-react';
+import { Star, Clock, Phone, Navigation } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -57,7 +57,7 @@ export default function GarageMap({ garages, selectedGarage, onGarageSelect, cla
   }, []);
 
   return (
-    <div className={`relative w-full h-full bg-gray-100 rounded-lg overflow-hidden ${className}`}>
+    <div className={`relative w-full h-full bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl overflow-hidden shadow-lg border border-gray-200 ${className}`}>
       {/* Google Maps Demo - Embedded iframe */}
       <div className="absolute inset-0">
         <iframe
@@ -68,7 +68,7 @@ export default function GarageMap({ garages, selectedGarage, onGarageSelect, cla
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          className="rounded-lg"
+          className="rounded-xl"
         />
         
         {/* Overlay for custom markers */}
@@ -90,28 +90,39 @@ export default function GarageMap({ garages, selectedGarage, onGarageSelect, cla
                   onClick={() => onGarageSelect(garage)}
                 >
                   {/* Marker */}
-                  <div className={`relative w-8 h-8 rounded-full border-2 border-white shadow-lg transition-all duration-200 ${
+                  <div className={`relative w-10 h-10 rounded-full border-3 border-white shadow-xl transition-all duration-300 hover:scale-110 ${
                     selectedGarage?.id === garage.id 
-                      ? 'bg-red-600 scale-125' 
+                      ? 'bg-gradient-to-br from-red-500 to-red-600 scale-125 shadow-2xl ring-4 ring-red-200' 
                       : garage.status === 'open' 
-                        ? 'bg-green-500 hover:bg-green-600' 
-                        : 'bg-gray-500 hover:bg-gray-600'
+                        ? 'bg-gradient-to-br from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700' 
+                        : 'bg-gradient-to-br from-gray-400 to-gray-500 hover:from-gray-500 hover:to-gray-600'
                   }`}>
-                    <MapPin className="w-4 h-4 text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold">
+                      {index + 1}
+                    </div>
                   </div>
 
                   {/* Tooltip */}
-                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                    <Card className="w-48 p-2 shadow-lg">
+                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+                    <Card className="w-56 p-3 shadow-2xl border border-gray-200 bg-white/95 backdrop-blur-sm">
                       <CardContent className="p-0">
-                        <div className="space-y-1">
-                          <h4 className="font-semibold text-sm truncate">{garage.name}</h4>
-                          <div className="flex items-center gap-1">
-                            <Star className="w-3 h-3 text-yellow-500 fill-current" />
-                            <span className="text-xs text-gray-600">{garage.rating} ({garage.reviewCount})</span>
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2">
+                            <h4 className="font-bold text-sm text-gray-800 truncate">{garage.name}</h4>
+                            <Badge 
+                              variant={garage.status === 'open' ? 'default' : 'secondary'}
+                              className={`text-xs ${garage.status === 'open' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-600'}`}
+                            >
+                              {garage.status === 'open' ? 'Mở' : 'Đóng'}
+                            </Badge>
                           </div>
                           <div className="flex items-center gap-1">
-                            <Clock className="w-3 h-3 text-gray-500" />
+                            <Star className="w-3 h-3 text-yellow-500 fill-current" />
+                            <span className="text-xs text-gray-700 font-medium">{garage.rating}</span>
+                            <span className="text-xs text-gray-500">({garage.reviewCount} đánh giá)</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Clock className="w-3 h-3 text-blue-500" />
                             <span className="text-xs text-gray-600">{garage.openTime}</span>
                           </div>
                         </div>
@@ -126,10 +137,11 @@ export default function GarageMap({ garages, selectedGarage, onGarageSelect, cla
 
         {/* Loading overlay */}
         {!mapLoaded && (
-          <div className="absolute inset-0 bg-white/80 flex items-center justify-center">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
             <div className="text-center">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-red-600 mx-auto mb-2"></div>
-              <p className="text-sm text-gray-600">Đang tải bản đồ...</p>
+              <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-200 border-t-blue-600 mx-auto mb-4"></div>
+              <p className="text-sm text-gray-700 font-medium">Đang tải bản đồ...</p>
+              <p className="text-xs text-gray-500 mt-1">Vui lòng chờ trong giây lát</p>
             </div>
           </div>
         )}
@@ -143,47 +155,65 @@ export default function GarageMap({ garages, selectedGarage, onGarageSelect, cla
         <Button
           variant="outline"
           size="sm"
-          className="bg-white/90 backdrop-blur-sm hover:bg-white"
+          className="bg-white/95 backdrop-blur-sm hover:bg-white border-gray-200 shadow-lg hover:shadow-xl transition-all duration-200"
         >
-          <Navigation className="w-4 h-4" />
+          <Navigation className="w-4 h-4 text-gray-700" />
         </Button>
       </div>
 
       {/* Selected Garage Info Panel */}
       {selectedGarage && (
-        <div className="absolute bottom-4 left-4 right-4">
-          <Card className="bg-white/95 backdrop-blur-sm">
-            <CardContent className="p-4">
+        <div className="absolute bottom-4 left-4 right-4 z-10">
+          <Card className="bg-white/98 backdrop-blur-md shadow-2xl border border-gray-200 rounded-xl overflow-hidden">
+            <CardContent className="">
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2">
-                    <h3 className="font-semibold text-lg">{selectedGarage.name}</h3>
-                    <Badge variant={selectedGarage.status === 'open' ? 'default' : 'secondary'}>
+                  <div className="flex items-center gap-3 mb-3">
+                    <h3 className="font-bold text-xl text-gray-800">{selectedGarage.name}</h3>
+                    <Badge 
+                      variant={selectedGarage.status === 'open' ? 'default' : 'secondary'}
+                      className={`px-3 py-1 text-sm font-medium ${
+                        selectedGarage.status === 'open' 
+                          ? 'bg-green-100 text-green-800 border-green-200' 
+                          : 'bg-gray-100 text-gray-600 border-gray-200'
+                      }`}
+                    >
                       {selectedGarage.status === 'open' ? 'Mở cửa' : 'Đóng cửa'}
                     </Badge>
                   </div>
                   
-                  <div className="flex items-center gap-1 mb-1">
-                    <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                    <span className="text-sm font-medium">{selectedGarage.rating}</span>
-                    <span className="text-sm text-gray-600">({selectedGarage.reviewCount} đánh giá)</span>
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="flex items-center gap-1">
+                      <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                      <span className="text-sm font-semibold text-gray-800">{selectedGarage.rating}</span>
+                    </div>
+                    <span className="text-sm text-gray-500">({selectedGarage.reviewCount} đánh giá)</span>
+                    <span className="text-sm text-gray-400">•</span>
+                    <span className="text-sm text-gray-500">{selectedGarage.distance}</span>
                   </div>
                   
-                  <p className="text-sm text-gray-600 mb-2">{selectedGarage.address}</p>
+                  <p className="text-sm text-gray-600 mb-3 leading-relaxed">{selectedGarage.address}</p>
                   
-                  <div className="flex items-center gap-1 text-sm text-gray-600">
-                    <Clock className="w-4 h-4" />
-                    <span>{selectedGarage.openTime}</span>
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <Clock className="w-4 h-4 text-blue-500" />
+                    <span className="font-medium">{selectedGarage.openTime}</span>
                   </div>
                 </div>
                 
-                <div className="flex flex-col gap-2 ml-4">
-                  <Button size="sm" className="bg-red-600 hover:bg-red-700">
-                    <Phone className="w-4 h-4 mr-1" />
-                    Gọi
+                <div className="flex flex-col gap-3 ml-6">
+                  <Button 
+                    size="sm" 
+                    className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
+                  >
+                    <Phone className="w-4 h-4 mr-2" />
+                    Gọi điện
                   </Button>
-                  <Button variant="outline" size="sm">
-                    Chi tiết
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    className="border-gray-300 text-gray-700 hover:bg-gray-50 font-medium"
+                  >
+                    Xem chi tiết
                   </Button>
                 </div>
               </div>
