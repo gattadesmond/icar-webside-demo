@@ -53,8 +53,8 @@ export default function GarageListItem({ garage, rank }: GarageListItemProps) {
   };
 
   return (
-    <Card className="w-full py-4">
-      <CardContent className="px-4">
+    <Card className="w-full py-4 relative pb-16">
+      <CardContent className="px-4 ">
         {/* Garage Image - 16:9 Aspect Ratio */}
         <div className="relative mb-2">
           <div className="w-full aspect-video bg-gray-100 rounded overflow-hidden">
@@ -69,7 +69,7 @@ export default function GarageListItem({ garage, rank }: GarageListItemProps) {
         </div>
 
         {/* Garage Info */}
-        <div className="space-y-3 mt-4">
+        <div className="space-y-3 mt-4 ">
           {/* Garage Name */}
           <h3 className="text-base font-bold leading-tight">
             {rank}. {garage.name}
@@ -115,7 +115,7 @@ export default function GarageListItem({ garage, rank }: GarageListItemProps) {
               <span>{garage.openTime}</span>
             </div>
           </div>
-          <div className="mt-6">
+          <div className="mt-6 absolute bottom-0 left-0 right-0 p-4">
             {/* Action Buttons */}
             {garage.status === 'open' ? (
               <Button className="flex-1 w-full bg-red-800 hover:bg-red-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200" size="lg">
