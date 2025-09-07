@@ -52,10 +52,10 @@ export default function RepairPalSearchBox() {
             key={button.id}
             variant={button.active ? "default" : "outline"}
             onClick={() => handleFilterToggle(button.id)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+            className={`flex border-white/90 bg-transparent hover:bg-transparent border items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
               button.active
-                ? 'bg-red-600 text-white hover:bg-red-700 shadow-md'
-                : 'bg-white/10 text-gray-300 border-gray-600 hover:border-red-500 hover:text-red-400 hover:bg-white/20'
+                ? 'bg-white/10  text-white  shadow-md'
+                : ' text-gray-300 border-gray-600 hover:bg-white/10 '
             }`}
           >
             {button.icon}

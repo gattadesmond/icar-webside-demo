@@ -19,7 +19,7 @@ export default function ViewToggle({ currentView, onViewChange, className = '' }
         onClick={() => onViewChange('list')}
         className={`flex items-center gap-2 px-4 py-2 rounded-md transition-all duration-200 ${
           currentView === 'list'
-            ? 'bg-red-600 text-white hover:bg-red-700 shadow-md'
+            ? 'bg-white/90 text-neutral-900 shadow-md'
             : 'text-gray-300 hover:text-white hover:bg-white/10'
         }`}
       >
@@ -33,12 +33,12 @@ export default function ViewToggle({ currentView, onViewChange, className = '' }
         onClick={() => onViewChange('map')}
         className={`flex items-center gap-2 px-4 py-2 rounded-md transition-all duration-200 ${
           currentView === 'map'
-            ? 'bg-red-600 text-white hover:bg-red-700 shadow-md'
+            ? 'bg-white/90 text-neutral-900  shadow-md'
             : 'text-gray-300 hover:text-white hover:bg-white/10'
         }`}
       >
         <MapPin className="w-4 h-4" />
-        <span className="hidden sm:inline">Danh sách + Bản đồ</span>
+        <span className="hidden sm:inline">Bản đồ</span>
       </Button>
     </div>
   );
