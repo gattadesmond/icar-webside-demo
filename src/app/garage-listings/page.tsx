@@ -246,7 +246,7 @@ export default function GarageListingsPage() {
                   <GarageListItem
                     key={garage.id}
                     garage={garage}
-                    rank={index + 1}
+                    
                   />
                 ))}
               </div>
